@@ -4,7 +4,7 @@
 <?rfc toc="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc sortrefs="no" ?>
-<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-13.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-14.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
   <front>
     <title>
 		Using the SDP Offer/Answer Mechanism for DTLS
@@ -422,8 +422,7 @@
             how to demultiplex STUN packets from DTLS packets and SRTP packets.
         </t>
         <t>
-            As defined in <xref format="default" pageno="false" target="RFC5763"/>,
-            each ICE candidate associated with a component is treated as being part of the
+            Each ICE candidate associated with a component is treated as being part of the
             same DTLS association. Therefore, from a DTLS perspective it is not considered
             a change of local transport parameters when an endpoint switches between those
             ICE candidates.
@@ -462,7 +461,7 @@
             Regardless of the previous existence of DTLS association, the SDP 'setup' attribute
             MUST be included according to rules defiend in <xref format="default" pageno="false"
             target="RFC4145"/> and if ICE is used, ICE restart MUST be initiated as defined in
-            <xref format="default" pageno="false" target="RFC5763"/>.
+            <xref format="default" pageno="false" target="sec-dtls-reest-ice"/>.
         </t>
 	</section>
 
@@ -894,19 +893,19 @@ NEW TEXT:
             media level attributes.
         </t>
         <figure>
-			<artwork align="left"><![CDATA[
+          <artwork align="left"><![CDATA[
 
     Attribute name: dtls-id
     Type of attribute: media-level
     Subject to charset: no
-    Purpose: Indicate whether a new DTLS association is to be 
+    Purpose: Indicate whether a new DTLS association is to be
     established/re-established.
     Appropriate Values: see Section 4
-    Contact name: Christer Holmberg
+    Contact name: Christer Holmberg (christer.holmberg@ericsson.com)
     Category: IDENTICAL
 
 			]]></artwork>
-		</figure>
+        </figure>
 	</section>
 
 	<section title="Acknowledgements">
@@ -919,6 +918,13 @@ NEW TEXT:
 
 	<section title="Change Log">
 		<t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-13
+            <list style="symbols">
+                <t>Changes based on 2nd WGLC</t>
+                <t>- Reference to RFC5763 removed from ICE Considerations.</t>
+                <t>- Reference to RFC5763 removed from SIP Considerations.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-12
             <list style="symbols">
                 <t>"unreliable" changed to "unordered"</t>
