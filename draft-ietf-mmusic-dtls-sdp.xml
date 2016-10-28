@@ -95,31 +95,31 @@
     <section title="Establishing a new DTLS Association">
         <section title="General" anchor="sec-dtls-gen">
             <t>
-                A new DTLS association MUST be established after a successfull offer/answer transaction
+                A new DTLS association MUST be established after a successfull SDP offer/answer transaction
                 in the following cases::
                 <list style="symbols">
                         <t>
-                            The negotiated DTLS setup roles change;
+                            The negotiated DTLS setup roles change; or
                         </t>
                         <t>
                             One or more fingerprint values are modified, added
-                            or removed in either offer or answer SDP; or
+                            or removed in either an SDP offer or answer; or
                         </t>
                         <t>
                             The intent to establish a new DTLS association is
-                            explicitly signaled by changing the value of a newly defined
-                            'dtls-id' SDP attribute;
+                            explicitly signaled by changing the value of the
+                            SDP 'dtls-id' attribute defined in this document;
                         </t>
                 </list>
             </t>
             <t>
                 NOTE: The first two items list above are based on the procedures
                 in <xref format="default" pageno="false" target="RFC5763"/>.
-                This specification adds the support for explicit signaling via 'dtls-id' SDP attribute.
+                This specification adds the support for explicit signaling using the SDP 'dtls-id' attribute.
             </t>
             <t>
                 A new DTLS association can only established as a result of the successful SDP offer/answer transaction.
-                Whenever an entity determines that a new DTLS association is required, the entity MUST initiate an 
+                Whenever an entity determines that a new DTLS association is required, the entity MUST initiate an
                 SDP offer/answer transaction, following the procedures in <xref target="sec-oa"/>.
             </t>
             <t>
@@ -446,7 +446,7 @@
             cannot initiate a new DTLS association unless the offerer initiated ICE restart
             <xref format="default" pageno="false" target="I-D.ietf-ice-rfc5245bis"/>. If the answerer wants
             to initiate a new DTLS association, it needs to initiate an ICE restart
-            and a new offer/answer exchange on its own. However, an ICE restart does not by 
+            and a new offer/answer exchange on its own. However, an ICE restart does not by
             default require a new DTLS association
             to be established.
         </t>
