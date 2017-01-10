@@ -183,6 +183,10 @@
             intends to reuse the existing DTLS association.
         </t>
         <t>
+            The mechanism to generate the unique local 'dtls-id' attribute value MUST guarantee global
+            uniqueness of the value for the lifetime of the DTLS association associated with the attribute value.
+        </t>
+        <t>
             No default value is defined for the SDP 'dtls-id' attribute.
             Implementations that wish to use the attribute MUST explicitly include it
             in SDP offers and answers. If an offer or answer does not contain an
