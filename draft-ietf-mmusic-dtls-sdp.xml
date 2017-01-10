@@ -38,7 +38,7 @@
         </address>
     </author>
 
-    <date year="2016" />
+    <date year="2017" />
     <area>RAI</area>
     <abstract>
             <t>
@@ -206,6 +206,7 @@
                     </t>
                     <t>
                         local transport parameters; or
+                    </t>
                     <t>
                         ICE ufrag value
                     </t>
@@ -254,7 +255,7 @@
                 UDP, packets for the old DTLS association can arrive after the answer SDP was received and after first
                 packets for the new DTLS association were received. The only way to de-multiplex packets belonging to
                 old and new DTLS association is on the basis of transport 5-tuple. Because of this, if unordered transport
-                is used for DTLS association, new transport (3-tuple) MUST be allocated by at least one the end points
+                is used for DTLS association, new transport (3-tuple) MUST be allocated by at least one of the end points
                 so that DTLS packets can be de-multiplexed.
             </t>
             <t>
@@ -937,6 +938,11 @@ NEW TEXT:
 
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-15
+            <list style="symbols">
+                <t>dtls-id attribute value made globally unique</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-14
             <list style="symbols">
                 <t>Changes based on comments from Flemming:</t>
@@ -1059,15 +1065,15 @@ NEW TEXT:
         <?rfc include="reference.RFC.4566"?>
         <?rfc include="reference.RFC.5763"?>
         <?rfc include="reference.RFC.7345"?>
-        <?rfc include="reference.I-D.draft-ietf-mmusic-4572-update-07"?>
+        <?rfc include="reference.I-D.draft-ietf-mmusic-4572-update-10"?>
     </references>
     <references title="Informative References">
         <?rfc include="reference.RFC.5576"?>
         <?rfc include="reference.RFC.5764"?>
         <?rfc include="reference.RFC.6083"?>
-        <?rfc include="reference.I-D.draft-ietf-ice-rfc5245bis-04"?>
-        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-mux-attributes-14"?>
-        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-bundle-negotiation-35"?>
+        <?rfc include="reference.I-D.draft-ietf-ice-rfc5245bis-08"?>
+        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-mux-attributes-16"?>
+        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-bundle-negotiation-36"?>
     </references>
 
 </back>
