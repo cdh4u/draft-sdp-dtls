@@ -304,7 +304,7 @@
             </t>
             <t>
                 Endpoints MUST support the cipher suites as defined in
-                <xref format="default" pageno="false" target="I-D.ietf-mmusic-4572-update"/>.,
+                <xref format="default" pageno="false" target="I-D.ietf-mmusic-4572-update"/>.
             </t>
             <t>
                 The certificate received during the DTLS handshake MUST match the certificate
@@ -351,7 +351,7 @@
                 DTLS assocation.
             </t>
             <t>
-                If the answerer receives an offer that requires establishing a new DTLS association, and if the
+                If the answerer receives an offer that requires establishment of a new DTLS association, and if the
                 answerer does not accept the establishment of a new DTLS association, the answerer MUST reject
                 the "m=" lines associated with the suggested DTLS association
                 <xref format="default" pageno="false" target="RFC3264"/>.
@@ -389,7 +389,7 @@
             </t>
             <t>
                 NOTE: A new DTLS association can be established based on changes in either an SDP offer or answer.
-                When communicating with legacy endpoints, an offerer can receive an answer that include the same
+                When communicating with legacy endpoints, an offerer can receive an answer that includes the same
                 fingerprint set and setup role. A new DTLS association MUST still be established if such an answer
                 was received as a response to an offer which requested the establishment of a new DTLS association.
             </t>
@@ -420,7 +420,7 @@
 
     <section title="ICE Considerations" anchor="sec-dtls-reest-ice">
         <t>
-            When the Interactive Connectivity Establishment (ICE) mechansim
+            When the Interactive Connectivity Establishment (ICE) mechanism
             <xref format="default" pageno="false" target="I-D.ietf-ice-rfc5245bis"/> is used, the
             ICE connectivity checks are performed before the DTLS
             handshake begins. Note that if aggressive nomination mode is used,
@@ -938,6 +938,11 @@ NEW TEXT:
 
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-16
+            <list style="symbols">
+                <t>Editorial changes based on 2nd WGLC comments.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-15
             <list style="symbols">
                 <t>dtls-id attribute value made globally unique</t>
