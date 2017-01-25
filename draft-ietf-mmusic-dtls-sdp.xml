@@ -407,9 +407,11 @@
                 When the offerer sends a subsequent offer, and the offerer does not want to establish
                 a new DTLS association, and if a previously established DTLS association exists, the
                 offerer MUST insert an SDP 'dtls-id' attribute with the previously assigned value in the offer.
-                In addition, the offerer MUST insert an SDP 'setup' attribute with a value that does
-                not change the previously negotiated DTLS roles, and one or more SDP 'fingerprint' attributes with
-                values that do not change the previously sent fingerprint set, in the offer.
+                In addition, the offerer MUST insert an SDP 'setup' attribute, and one or more SDP 'fingerprint' attributes with
+                values that do not change the previously sent fingerprint set, in the offer. The value of the 'setup'
+                attribute SHOULD be set to 'actpass', in order to allow the answerer to establish a new DTLS
+                association with a different role, but MAY be set to the current negotiated role ('active' or
+                'passive'). It MUST NOT be set to a value that changes the current negotiated role.
             </t>
             <t>
                 NOTE: When a new DTLS association is being established, each endpoint needs to be prepared to receive
