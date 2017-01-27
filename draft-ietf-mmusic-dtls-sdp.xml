@@ -79,7 +79,7 @@
                 to explicitly indicate in an SDP offer or answer whether a new DTLS association is required.
                 To solve that problem, this document defines a new SDP attribute, 'dtls-id'. The pair of
                 SDP 'dtls-id' attribute values (the attribute values of the offerer and the answerer)
-                uniquely identifies the DTLS association. Providing a new value of 'dtls-id' attribute in SDP offer
+                uniquely identifies the DTLS association. Providing a new value of 'dtls-id' attribute in an SDP offer
                 or answers can be used to indicate whether a new DTLS association is to be established.
             </t>
     </section>
@@ -735,9 +735,9 @@ NEW TEXT:
 
 6.7.1.  ICE Interaction
 
-   The Interactive Connectivity Establishment (ICE) [RFC5245]
-   considerations for DTLS-protected media are described in
-   [RFCXXXX].
+   The Interactive Connectivity Establishment (ICE)
+   [I-D.ietf-ice-rfc5245bis] considerations for DTLS-protected media
+   are described in [RFCXXXX].
                 ]]></artwork>
             </figure>
         </section>
@@ -888,9 +888,9 @@ NEW TEXT:
 
 5.2.1.  ICE Usage
 
-   The Interactive Connectivity Establishment (ICE) [RFC5245]
-   considerations for DTLS-protected media are described in
-   [RFCXXXX].
+   The Interactive Connectivity Establishment (ICE)
+   [I-D.ietf-ice-rfc5245bis] considerations for DTLS-protected media
+   are described in [RFCXXXX].
 
                 ]]></artwork>
             </figure>
@@ -1075,13 +1075,25 @@ NEW TEXT:
         <?rfc include="reference.I-D.draft-ietf-mmusic-4572-update-12"?>
     </references>
     <references title="Informative References">
+        <?rfc include="reference.RFC.4474"?>
         <?rfc include="reference.RFC.4572"?>
+        <?rfc include="reference.RFC.5245"?>
         <?rfc include="reference.RFC.5576"?>
         <?rfc include="reference.RFC.5764"?>
         <?rfc include="reference.RFC.6083"?>
         <?rfc include="reference.I-D.draft-ietf-ice-rfc5245bis-08"?>
         <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-mux-attributes-16"?>
         <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-bundle-negotiation-36"?>
+        <reference anchor="ITU.T38.2010">
+          <front>
+          <title>Procedures for real-time Group 3 facsimile communication over IP networks</title>
+          <author>
+          <organization>International Telecommunications Union</organization>
+          </author>
+          <date year="2010" month="September"/>
+          </front>
+          <seriesInfo value="Recommendation T.38" name="ITU-T"/>
+        </reference>
     </references>
 
 </back>
