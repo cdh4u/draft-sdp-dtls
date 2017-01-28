@@ -4,7 +4,7 @@
 <?rfc toc="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc sortrefs="no" ?>
-<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-17.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-18.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
   <front>
     <title>
         Using the SDP Offer/Answer Mechanism for DTLS
@@ -616,7 +616,8 @@ NEW TEXT:
    The two endpoints in the exchange present their identities as part of
    the DTLS handshake procedure using certificates. This document uses
    certificates in the same style as described in "Connection-Oriented
-   Media Transport over TLS in SDP" [I-D.ietf-mmusic-4572-update].
+   Media Transport over the Transport Layer Security (TLS) Protocol in
+   the Session Description Protocol (SDP)" [RFC4572].
 
    If self-signed certificates are used, the content of the
    subjectAltName attribute inside the certificate MAY use the uniform
@@ -939,6 +940,11 @@ NEW TEXT:
 
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-17
+            <list style="symbols">
+                <t>Reference fix.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-16
             <list style="symbols">
                 <t>Editorial changes based on 2nd WGLC comments
