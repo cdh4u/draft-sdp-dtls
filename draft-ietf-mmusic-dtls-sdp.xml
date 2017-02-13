@@ -4,7 +4,7 @@
 <?rfc toc="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc sortrefs="no" ?>
-<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-18.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-19.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
   <front>
     <title>
         Using the SDP Offer/Answer Mechanism for DTLS
@@ -168,7 +168,11 @@
 
        Syntax:
 
-           dtls-id-value = 4*256 <alpha-numeric defined in [RFC4566]>
+           dtls-id-value = 6*256(dtls-id-char)
+           dtls-id-char = ALPHA / DIGIT / "+" / "/" / "-" / "_"
+
+           <ALPHA and DIGIT defined in [RFC4566]>
+
 
        Example:
 
@@ -183,7 +187,7 @@
             intends to reuse the existing DTLS association.
         </t>
         <t>
-            The 'dtls-id' attribute value MUST contain at least 24 bits of randomness.
+            The 'dtls-id' attribute value MUST contain at least 32 bits of randomness.
         </t>
         <t>
             No default value is defined for the SDP 'dtls-id' attribute.
@@ -940,6 +944,13 @@ NEW TEXT:
 
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-18
+            <list style="symbols">
+                <t>Changes based on comments from Flemming.</t>
+                <t>- Change in dtls-id value definition.</t>
+                <t>- Editorial fixes.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-17
             <list style="symbols">
                 <t>Reference fix.</t>
