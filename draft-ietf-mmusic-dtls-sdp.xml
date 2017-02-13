@@ -172,7 +172,7 @@
 
        Example:
 
-           a=dtls-id:ABC3DE65CDDEF001
+           a=dtls-id:abc3de65cddef001
 
             ]]></artwork>
         </figure>
