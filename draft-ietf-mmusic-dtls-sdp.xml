@@ -168,7 +168,7 @@
 
        Syntax:
 
-           dtls-id-value = 6*256(dtls-id-char)
+           dtls-id-value = 20*255(dtls-id-char)
            dtls-id-char = ALPHA / DIGIT / "+" / "/" / "-" / "_"
 
            <ALPHA and DIGIT defined in [RFC4566]>
@@ -176,7 +176,7 @@
 
        Example:
 
-           a=dtls-id:abc3de65cddef001
+           a=dtls-id:abc3de65cddef001be82
 
             ]]></artwork>
         </figure>
@@ -187,7 +187,7 @@
             intends to reuse the existing DTLS association.
         </t>
         <t>
-            The 'dtls-id' attribute value MUST contain at least 32 bits of randomness.
+            The 'dtls-id' attribute value MUST contain at least 120 bits of randomness.
         </t>
         <t>
             No default value is defined for the SDP 'dtls-id' attribute.
