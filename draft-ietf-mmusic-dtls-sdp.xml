@@ -4,7 +4,7 @@
 <?rfc toc="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc sortrefs="no" ?>
-<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-19.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-21.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
   <front>
     <title>
         Using the SDP Offer/Answer Mechanism for DTLS
@@ -187,7 +187,8 @@
             intends to reuse the existing DTLS association.
         </t>
         <t>
-            The 'dtls-id' attribute value MUST contain at least 120 bits of randomness.
+            The 'dtls-id' attribute value MUST be generated using a cryptographic random function
+            and include at least 120 bits of randomness.
         </t>
         <t>
             No default value is defined for the SDP 'dtls-id' attribute.
@@ -937,13 +938,23 @@ NEW TEXT:
     <section title="Acknowledgements">
         <t>
             Thanks to Justin Uberti, Martin Thomson, Paul Kyzivat, Jens Guballa,
-            Charles Eckel and Gonzalo Salgueiro for providing comments and
+            Charles Eckel, Gonzalo Salgueiro and Paul Jones for providing comments and
             suggestions on the document.
         </t>
     </section>
 
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-20
+            <list style="symbols">
+                <t>Change to length and randomness of dtls-id attribute value.</t>
+            </list>
+        </t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-19
+            <list style="symbols">
+                <t>Change based on comment from Roman.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-18
             <list style="symbols">
                 <t>Changes based on comments from Flemming.</t>
