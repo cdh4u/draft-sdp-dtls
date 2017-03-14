@@ -69,6 +69,16 @@
                 SDP offer/answer procedures with a reference to this specification.
             </t>
             <t>
+                NOTE: Since the publication of <xref format="default" pageno="false" target="RFC5763"/>,
+                <xref format="default" pageno="false" target="RFC4474"/> has been obsoleted by
+                <xref format="default" pageno="false" target="I-D.ietf-stir-rfc4474bis"/>. The updating
+                of the references (and the associated procedures) within <xref format="default" pageno="false"
+                target="RFC5763"/> is outside the scope of this document. However, implementers of
+                <xref format="default" pageno="false" target="RFC5763"/> applications are encouraged to
+                implement <xref format="default" pageno="false" target="I-D.ietf-stir-rfc4474bis"/> instead
+                of <xref format="default" pageno="false" target="RFC4474"/>.
+             </t>
+            <t>
                 As defined in <xref format="default" pageno="false" target="RFC5763"/>, a new DTLS association
                 MUST be established when transport parameters are changed. Transport parameter change is not
                 well defined when Interactive Connectivity Establishment (ICE) <xref format="default"
@@ -95,8 +105,8 @@
     <section title="Establishing a new DTLS Association">
         <section title="General" anchor="sec-dtls-gen">
             <t>
-                A new DTLS association MUST be established after a successful SDP offer/answer exchange
-                in the following cases:
+                A new DTLS association must be established between two endpoints after a
+                successful SDP offer/answer exchange in the following cases:
                 <list style="symbols">
                         <t>
                             The negotiated DTLS setup roles change; or
@@ -107,7 +117,7 @@
                         </t>
                         <t>
                             The intent to establish a new DTLS association is
-                            explicitly signaled by changing the value of the
+                            explicitly signaled using SDP, by changing the value of the
                             SDP 'dtls-id' attribute defined in this document;
                         </t>
                 </list>
@@ -129,12 +139,12 @@
         <section title="Change of Local Transport Parameters" anchor="sec-dtls-transport">
             <t>
                 If an endpoint modifies its local transport parameters (address and/or port), and if the modification
-                requires a new DTLS association, the endpoint MUST change its local SDP 'dtls-id'
+                requires a new DTLS association, the endpoint must change its local SDP 'dtls-id'
                 attribute value (see <xref target="sec-dcon-attr"/>).
             </t>
             <t>
-                If the underlying transport explicitly prohibits a DTLS association to span multiple transports, and if
-                the transport is changed, the endpoint MUST change its local SDP 'dtls-id'
+                If the underlying transport prohibits a DTLS association from spanning multiple transports, and if
+                the transport is changed, the endpoint must change its local SDP 'dtls-id'
                 attribute value (see <xref target="sec-dcon-attr"/>).
                 An example of such a case is when DTLS is carried over SCTP, as described in
                 <xref format="default" pageno="false" target="RFC6083"/>.
@@ -192,15 +202,15 @@
         </t>
         <t>
             No default value is defined for the SDP 'dtls-id' attribute.
-            Implementations that wish to use the attribute MUST explicitly include it
-            in SDP offers and answers. If an offer or answer does not contain a 'dtls-id'
-            attribute (this could happen if the offerer or answerer represents an
-            existing implementation that has not been updated to support the 'dtls-id' attribute),
-            the offer or answer MUST be treated as if no 'dtls-id' attribute is included.
-            Unless there is another mechanism to explicitly indicate that a new DTLS association
-            is to be established, a modification of one or more of the following characteristics
-            MUST be treated as an indication that an endpoint wants to establish a new
-            DTLS association:
+            Implementations that wish to use the attribute MUST explicitly
+            include it in SDP offers and answers. If an offer or answer does not
+            contain a 'dtls-id' attribute (this could happen if the offerer or
+            answerer represents an existing implementation that has not been
+            updated to support the 'dtls-id' attribute), unless there is
+            another mechanism to explicitly indicate that a new DTLS association
+            is to be established, a modification of one or more of the following
+            characteristics MUST be treated as an indication that an endpoint
+            wants to establish a new DTLS association:
             <list style="symbols">
                     <t>
                         DTLS setup role; or
@@ -259,7 +269,7 @@
                 UDP, packets for the old DTLS association can arrive after the answer SDP was received and after the first
                 packets for the new DTLS association were received. The only way to de-multiplex packets belonging to
                 the old and new DTLS association is on the basis of transport 5-tuple. Because of this, if an unordered transport
-                is used for the DTLS association, a new transport (3-tuple) MUST be allocated by at least one of the end points
+                is used for the DTLS association, a new transport (3-tuple) must be allocated by at least one of the endpoints
                 so that DTLS packets can be de-multiplexed.
             </t>
             <t>
@@ -436,7 +446,8 @@
         </t>
         <t>
             NOTE: Aggressive nomination has been deprecated from ICE, but must still be
-            supported for backwards compatibility reasons.
+            supported for backwards compatibility reasons <xref format="default" pageno="false"
+            target="I-D.ietf-ice-rfc5245bis"/>.
         </t>
         <t>
             When a new DTLS association is established over an unordered transport, in order to
@@ -480,7 +491,7 @@
             target="RFC3261"/> is used as the signal protocol for establishing a multimedia
             session, dialogs <xref format="default" pageno="false" target="RFC3261"/> might be
             established between the caller and multiple callees. This is referred to as forking.
-            If forking occurs, separate DTLS associations MUST be established between the caller
+            If forking occurs, separate DTLS associations will be established between the caller
             and each callee.
         </t>
         <t>
@@ -488,10 +499,10 @@
             an INVITE request is often referred to as an 'empty INVITE', or an 'offer-less INVITE'.
             The receiving endpoint will include the SDP offer in a response to the request.
             When the endpoint generates such SDP offer, if a previously established
-            DTLS association exists, the offerer SHOULD insert an SDP 'dtls-id'
+            DTLS association exists, the offerer MUST insert an SDP 'dtls-id'
             attribute, and one or more SDP 'fingerprint' attributes, with previously assigned
             attribute values. If a previously established DTLS association did not exist,
-            the offer SHOULD be generated based on the same rules as a new offer (see <xref target="sec-oa-offer"/>).
+            the offer MUST be generated based on the same rules as a new offer (see <xref target="sec-oa-offer"/>).
             Regardless of the previous existence of a DTLS association, the SDP 'setup' attribute
             MUST be included according to the rules defined in <xref format="default" pageno="false"
             target="RFC4145"/> and if ICE is used, ICE restart MUST be initiated.
@@ -645,14 +656,13 @@ NEW TEXT:
    send the SIP message containing the offer to the offerer's SIP proxy
    over an integrity protected channel. The proxy SHOULD add an
    Identity header field according to the procedures outlined in
-   [RFC4474]. The SIP message containing the offer SHOULD be sent to
-   the offerer's SIP proxy over an integrity protected channel.  When
-   the far endpoint receives the SIP message, it can verify the identity
-   of the sender using the Identity header field. Since the Identity
-   header field is a digital signature across several SIP header fields,
-   in addition to the body of the SIP message, the receiver can also be
-   certain that the message has not been tampered with after the digital
-   signature was applied and added to the SIP message.
+   [RFC4474]. When the far endpoint receives the SIP message, it can
+   verify the identity of the sender using the Identity header field.
+   Since the Identity header field is a digital signature across several
+   SIP header fields, in addition to the body of the SIP message, the
+   receiver can also be certain that the message has not been tampered
+   with after the digital signature was applied and added to the SIP
+   message.
 
    The far endpoint (answerer) may now establish a DTLS association with
    the offerer. Alternately, it can indicate in its answer that the
@@ -662,7 +672,7 @@ NEW TEXT:
    including the certificates, are made available to the endpoint
    application. The answerer is then able to verify that the offerer's
    certificate used for authentication in the DTLS handshake can be
-   associated to the certificate fingerprint contained in the offer in
+   associated to a certificate fingerprint contained in the offer in
    the SDP. At this point, the answerer may indicate to the end user
    that the media is secured. The offerer may only tentatively accept
    the answerer's certificate since it may not yet have the answerer's
@@ -682,6 +692,8 @@ NEW TEXT:
    The offerer and answerer MUST follow the SDP offer/answer procedures
    defined in [RFCXXXX].
 
+   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
+   of this document.]
 
 Update to section 6.6:
 ----------------------
@@ -710,6 +722,9 @@ NEW TEXT:
    This session modification can be carried in either an INVITE or
    UPDATE request. The peers can reuse an existing DTLS association,
    or establish a new one, following the procedures in [RFCXXXX].
+
+   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
+   of this document.]
 
 Update to section 6.7.1:
 ------------------------
@@ -750,6 +765,9 @@ NEW TEXT:
         <section title="Update to RFC 7345">
             <figure>
                 <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
+
+   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
+   of this document.]
 
 Update to section 4:
 --------------------
@@ -865,6 +883,9 @@ NEW TEXT:
    the offerer and answerer MUST use the SDP attributes defined for
    UDPTL over UDP, as defined in [ITU.T38.2010].
 
+   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
+   of this document.]
+
 
 Update to section 5.2.1:
 ------------------------
@@ -897,6 +918,9 @@ NEW TEXT:
    The Interactive Connectivity Establishment (ICE)
    [I-D.ietf-ice-rfc5245bis] considerations for DTLS-protected media
    are described in [RFCXXXX].
+
+   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
+   of this document.]
 
                 ]]></artwork>
             </figure>
@@ -939,7 +963,7 @@ NEW TEXT:
         <t>
             Thanks to Justin Uberti, Martin Thomson, Paul Kyzivat, Jens Guballa,
             Charles Eckel, Gonzalo Salgueiro and Paul Jones for providing comments and
-            suggestions on the document.
+            suggestions on the document. Ben Campbell performed an AD review.
         </t>
     </section>
 
@@ -1100,7 +1124,7 @@ NEW TEXT:
         <?rfc include="reference.RFC.4566"?>
         <?rfc include="reference.RFC.5763"?>
         <?rfc include="reference.RFC.7345"?>
-        <?rfc include="reference.I-D.draft-ietf-mmusic-4572-update-12"?>
+        <?rfc include="reference.I-D.draft-ietf-mmusic-4572-update-13"?>
     </references>
     <references title="Informative References">
         <?rfc include="reference.RFC.4474"?>
@@ -1112,6 +1136,7 @@ NEW TEXT:
         <?rfc include="reference.I-D.draft-ietf-ice-rfc5245bis-08"?>
         <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-mux-attributes-16"?>
         <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-bundle-negotiation-36"?>
+        <?rfc include="reference.I-D.draft-ietf-stir-rfc4474bis-16"?>
         <reference anchor="ITU.T38.2010">
           <front>
           <title>Procedures for real-time Group 3 facsimile communication over IP networks</title>
