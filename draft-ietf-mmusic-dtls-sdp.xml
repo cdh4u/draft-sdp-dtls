@@ -4,7 +4,7 @@
 <?rfc toc="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc sortrefs="no" ?>
-<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-21.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-22.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
   <front>
     <title>
         Using the SDP Offer/Answer Mechanism for DTLS
@@ -974,6 +974,12 @@ NEW TEXT:
 
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-21
+            <list style="symbols">
+                <t>Changes based on AD review by Ben Campbell.</t>
+                <t>(https://www.ietf.org/mail-archive/web/mmusic/current/msg17707.html)</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-20
             <list style="symbols">
                 <t>Change to length and randomness of dtls-id attribute value.</t>
