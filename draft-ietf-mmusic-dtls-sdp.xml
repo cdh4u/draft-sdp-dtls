@@ -1127,20 +1127,20 @@ NEW TEXT:
         <?rfc include="reference.RFC.3264"?>
         <?rfc include="reference.RFC.4145"?>
         <?rfc include="reference.RFC.4566"?>
+        <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5763"?>
         <?rfc include="reference.RFC.7345"?>
+        <?rfc include="reference.I-D.draft-ietf-ice-rfc5245bis-08"?>
         <?rfc include="reference.I-D.draft-ietf-mmusic-4572-update-13"?>
+        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-mux-attributes-16"?>
+        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-bundle-negotiation-36"?>
     </references>
     <references title="Informative References">
         <?rfc include="reference.RFC.4474"?>
-        <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5245"?>
         <?rfc include="reference.RFC.5576"?>
         <?rfc include="reference.RFC.5764"?>
         <?rfc include="reference.RFC.6083"?>
-        <?rfc include="reference.I-D.draft-ietf-ice-rfc5245bis-08"?>
-        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-mux-attributes-16"?>
-        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-bundle-negotiation-36"?>
         <?rfc include="reference.I-D.draft-ietf-stir-rfc4474bis-16"?>
         <reference anchor="ITU.T38.2010">
           <front>
