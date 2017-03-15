@@ -135,6 +135,11 @@
             <t>
                 The sections below describe typical cases where a new DTLS association needs to be established.
             </t>
+            <t>
+                In this document, a "new DTLS association" between two endpoints refers to either
+                an initial DTLS association (when no DTLS association is currently established between
+                the endpoints) or an DTLS association replacing a previously established DTLS association.
+            </t>
         </section>
         <section title="Change of Local Transport Parameters" anchor="sec-dtls-transport">
             <t>
