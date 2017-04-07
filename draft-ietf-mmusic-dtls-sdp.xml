@@ -102,7 +102,7 @@
                 the procedures in this document in conjunction with the procedures in <xref format="default"
                 pageno="false" target="RFC5763"/> and <xref format="default" pageno="false" target="RFC8122"/>.
                 The TLS specific considerations are described in <xref format="default" pageno="false"
-                target="sec-tls-con"/>.
+                target="sec-tls-cons"/>.
             </t>
     </section>
 
