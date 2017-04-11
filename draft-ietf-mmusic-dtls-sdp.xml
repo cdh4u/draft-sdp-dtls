@@ -515,6 +515,14 @@
             regarding whether a new TLS connection is to be established or not.
         </t>
         <t>
+            NOTE: Eventhough the SDP 'connection' attribute can be used to identiciate
+            whether a new TLS connection is to be established, the unique combination
+            of SDP 'tls-id' attribute values can be used to identity a TLS connection.
+            The unique value can be used e.g., within TLS protocol extensions to differentiate
+            between mulitple TLS connections and correlate those connections with specific
+            offer/answer exchanges.
+        </t>
+        <t>
             If an offerer or answerer inserts an SDP 'connection' attribute with a 'new'
             value in the offer/answer, the offerer/answerer MUST also insert an SDP 'tls-id'
             attribute with a new unique value.
