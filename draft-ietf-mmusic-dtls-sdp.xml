@@ -538,7 +538,7 @@
             the offerer/answerer MUST process the offer/answer as misformed.
         </t>
         <t>
-            An endpoint must make assumptions regarding the support of the SDP 'tls-id'
+            An endpoint must not make assumptions regarding the support of the SDP 'tls-id'
             attribute by the peer. Therefore, to avoid ambiguity, both offerers and answerers
             MUST always use the 'connection' attribute in conjunction with the 'tls-id' attribute.
         </t>
