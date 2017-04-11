@@ -530,6 +530,15 @@
             the offerer/answerer MUST process the offer/answer as misformed.
         </t>
         <t>
+            An endpoint MUST NOT make assumptions regarding the support of the SDP 'tls-id'
+            attribute by the peer. Therefore, to avoid ambiguity, both offerers and answerers
+            MUST always use the 'connection' attribute in conjunction with the 'tls-id' attribute.
+        </t>
+        <t>
+            NOTE: As defined in <xref format="default" pageno="false" target="RFC4145"/>, if the
+            SDP 'connection' attribute is not explicitly present, the implicit default value is 'new'.
+        </t>
+        <t>
             The SDP example below is based on the example in section 3.4 of
             <xref format="default" pageno="false" target="RFC3261"/>, with the addition of
             the SDP 'tls-id' attribute.
