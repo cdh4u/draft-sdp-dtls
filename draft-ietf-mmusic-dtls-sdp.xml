@@ -280,7 +280,7 @@
            </t>
             <t>
                 When an offerer or answerer indicates that it wants to establish a new DTLS association, it needs to make sure that
-                media packets in the existing DTLS association and new DTLS association can be de-multiplexed. In case
+                media packets in any existing DTLS association and new DTLS association can be de-multiplexed. In case
                 of an ordered transport (e.g., SCTP) this can be done simply by sending packets for the new DTLS association
                 after all packets for the existing DTLS association have been sent. In case of an unordered transport, such as
                 UDP, packets for the old DTLS association can arrive after the answer SDP was received and after the first
@@ -340,7 +340,7 @@
             </t>
             <t>
                 The certificate received during the DTLS handshake MUST match a certificate
-                fingerprints received in SDP 'fingerprint' attributes according to the procedures
+                fingerprint received in SDP 'fingerprint' attributes according to the procedures
                 defined in <xref format="default" pageno="false" target="RFC8122"/>.
                 If fingerprints do not match the hashed certificate, then an endpoint MUST tear
                 down the media session immediately (see <xref format="default" pageno="false"
@@ -416,8 +416,9 @@
                 to establish the DTLS association.
             </t>
             <t>
-                If the answer does not establish a new DTLS association, the offerer will continue using the
-                previously established DTLS association.
+                If the offerer indiciated a desire to reuse an existing DTLS association and the
+                answerer does not request the establishment of a new DTLS assocation, the offerer will
+                continue to use the previously established DTLS association.
             </t>
             <t>
                 NOTE: A new DTLS association can be established based on changes in either an SDP offer or answer.
