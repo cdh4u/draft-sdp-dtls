@@ -773,8 +773,6 @@ NEW TEXT:
    The offerer and answerer MUST follow the SDP offer/answer procedures
    defined in [RFCXXXX].
 
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
           ]]></artwork>
         </figure>
      </section>
@@ -807,8 +805,6 @@ NEW TEXT:
    UPDATE request. The peers can reuse an existing DTLS association,
    or establish a new one, following the procedures in [RFCXXXX].
 
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
    ]]></artwork>
  </figure>
 </section>
@@ -854,9 +850,6 @@ NEW TEXT:
           <section title="Update to section 4">
             <figure>
                 <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
-
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
 
 OLD TEXT:
 
@@ -969,8 +962,6 @@ NEW TEXT:
    the offerer and answerer MUST use the SDP attributes defined for
    UDPTL over UDP, as defined in [ITU.T38.2010].
 
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
    ]]></artwork>
  </figure>
 </section>
@@ -1007,8 +998,8 @@ NEW TEXT:
    [I-D.ietf-ice-rfc5245bis] considerations for DTLS-protected media
    are described in [RFCXXXX].
 
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
+   [RFC EDITOR NOTE: Througout the document, please replace RFCXXXX
+   with the RFC number of this document.]
 
                 ]]></artwork>
             </figure>
