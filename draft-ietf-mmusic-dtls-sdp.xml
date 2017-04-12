@@ -41,14 +41,19 @@
     <date year="2017" />
     <area>RAI</area>
     <abstract>
-            <t>
+        <t>
             This document defines the SDP offer/answer procedures for negotiating and establishing
             a DTLS association. The document also defines the criteria for when a new DTLS association
             must be established. The document updates RFC 5763 and RFC 7345, by replacing common
             SDP offer/answer procedures with a reference to this specification.
         </t>
         <t>
-            This document defines a new SDP media-level attribute, 'dtls-id'.
+            This document defines a new SDP media-level attribute, 'tls-id'.
+        </t>
+        <t>
+            This document also defines how the 'tls-id' attribute can be used for negotiating
+            and establishing a TLS connection, in conjunction with the procedures in RFC 4145 and
+            RFC 8122.
         </t>
     </abstract>
 </front>
@@ -87,10 +92,17 @@
                 and when ICE restart <xref format="default" pageno="false" target="I-D.ietf-ice-rfc5245bis"/> occurs. These events
                 do not always require a new DTLS association to be established, but currently there is no way
                 to explicitly indicate in an SDP offer or answer whether a new DTLS association is required.
-                To solve that problem, this document defines a new SDP attribute, 'dtls-id'. The pair of
-                SDP 'dtls-id' attribute values (the attribute values of the offerer and the answerer)
-                uniquely identifies the DTLS association. Providing a new value of the 'dtls-id' attribute in an SDP offer
+                To solve that problem, this document defines a new SDP attribute, 'tls-id'. The pair of
+                SDP 'tls-id' attribute values (the attribute values of the offerer and the answerer)
+                uniquely identifies the DTLS association. Providing a new value of the 'tls-id' attribute in an SDP offer
                 or answers can be used to indicate whether a new DTLS association is to be established.
+            </t>
+            <t>
+                The SDP 'tls-id' attribute can also be used for negotiating a TLS connection, using
+                the procedures in this document in conjunction with the procedures in <xref format="default"
+                pageno="false" target="RFC5763"/> and <xref format="default" pageno="false" target="RFC8122"/>.
+                The TLS specific considerations are described in <xref format="default" pageno="false"
+                target="sec-tls-cons"/>.
             </t>
     </section>
 
@@ -118,14 +130,14 @@
                         <t>
                             The intent to establish a new DTLS association is
                             explicitly signaled using SDP, by changing the value of the
-                            SDP 'dtls-id' attribute defined in this document;
+                            SDP 'tls-id' attribute defined in this document;
                         </t>
                 </list>
             </t>
             <t>
                 NOTE: The first two items above are based on the procedures
                 in <xref format="default" pageno="false" target="RFC5763"/>.
-                This specification adds the support for explicit signaling using the SDP 'dtls-id' attribute.
+                This specification adds the support for explicit signaling using the SDP 'tls-id' attribute.
             </t>
             <t>
                 A new DTLS association can only be established as a result of the successful SDP offer/answer exchange.
@@ -144,12 +156,12 @@
         <section title="Change of Local Transport Parameters" anchor="sec-dtls-transport">
             <t>
                 If an endpoint modifies its local transport parameters (address and/or port), and if the modification
-                requires a new DTLS association, the endpoint must change its local SDP 'dtls-id'
+                requires a new DTLS association, the endpoint must change its local SDP 'tls-id'
                 attribute value (see <xref target="sec-dcon-attr"/>).
             </t>
             <t>
                 If the underlying transport prohibits a DTLS association from spanning multiple transports, and if
-                the transport is changed, the endpoint must change its local SDP 'dtls-id'
+                the transport is changed, the endpoint must change its local SDP 'tls-id'
                 attribute value (see <xref target="sec-dcon-attr"/>).
                 An example of such a case is when DTLS is carried over SCTP, as described in
                 <xref format="default" pageno="false" target="RFC6083"/>.
@@ -158,22 +170,22 @@
         <section title="Change of ICE ufrag value" anchor="sec-dtls-ufrag">
             <t>
                 If an endpoint uses ICE, and modifies a local ufrag value, and if the modification
-                requires a new DTLS association, the endpoint MUST change its local SDP 'dtls-id'
+                requires a new DTLS association, the endpoint MUST change its local SDP 'tls-id'
                 attribute value (see <xref target="sec-dcon-attr"/>).
             </t>
         </section>
     </section>
-    <section title="SDP dtls-id Attribute" anchor="sec-dcon-attr">
+    <section title="SDP tls-id Attribute" anchor="sec-dcon-attr">
         <t>
-            The pair of SDP 'dtls-id' attribute values (the attribute values of the offerer and the answerer)
-            uniquely identifies the DTLS association.
+            The pair of SDP 'tls-id' attribute values (the attribute values of the offerer and the answerer)
+            uniquely identifies the DTLS association or TLS connection.
         </t>
         <figure>
             <artwork align="left"><![CDATA[
 
-       Name: dtls-id
+       Name: tls-id
 
-       Value: dtls-id-value
+       Value: tls-id-value
 
        Usage Level: media
 
@@ -183,35 +195,35 @@
 
        Syntax:
 
-           dtls-id-value = 20*255(dtls-id-char)
-           dtls-id-char = ALPHA / DIGIT / "+" / "/" / "-" / "_"
+           tls-id-value = 20*255(tls-id-char)
+           tls-id-char = ALPHA / DIGIT / "+" / "/" / "-" / "_"
 
            <ALPHA and DIGIT defined in [RFC4566]>
 
 
        Example:
 
-           a=dtls-id:abc3de65cddef001be82
+           a=tls-id:abc3de65cddef001be82
 
             ]]></artwork>
         </figure>
         <t>
             Every time an endpoint requests to establish a new DTLS association, the endpoint MUST
-            generate a new local 'dtls-id' attribute value. A non-changed local 'dtls-id' attribute
+            generate a new local 'tls-id' attribute value. A non-changed local 'tls-id' attribute
             value, in combination with non-changed fingerprints, indicates that the endpoint
             intends to reuse the existing DTLS association.
         </t>
         <t>
-            The 'dtls-id' attribute value MUST be generated using a cryptographic random function
+            The 'tls-id' attribute value MUST be generated using a cryptographic random function
             and include at least 120 bits of randomness.
         </t>
         <t>
-            No default value is defined for the SDP 'dtls-id' attribute.
+            No default value is defined for the SDP 'tls-id' attribute.
             Implementations that wish to use the attribute MUST explicitly
             include it in SDP offers and answers. If an offer or answer does not
-            contain a 'dtls-id' attribute (this could happen if the offerer or
+            contain a 'tls-id' attribute (this could happen if the offerer or
             answerer represents an existing implementation that has not been
-            updated to support the 'dtls-id' attribute), unless there is
+            updated to support the 'tls-id' attribute), unless there is
             another mechanism to explicitly indicate that a new DTLS association
             is to be established, a modification of one or more of the following
             characteristics MUST be treated as an indication that an endpoint
@@ -233,12 +245,12 @@
         </t>
         <t>
             The mux category <xref target="I-D.ietf-mmusic-sdp-mux-attributes"/>
-            for the 'dtls-id' attribute is 'IDENTICAL', which means that
+            for the 'tls-id' attribute is 'IDENTICAL', which means that
             the attribute value must be identical across all media descriptions
             being multiplexed <xref target="I-D.ietf-mmusic-sdp-bundle-negotiation"/>.
         </t>
         <t>
-            For RTP-based media, the 'dtls-id' attribute applies to the whole associated
+            For RTP-based media, the 'tls-id' attribute applies to the whole associated
             media description. The attribute MUST NOT be defined per source (using the
             SDP 'ssrc' attribute <xref format="default" pageno="false" target="RFC5576"/>).
         </t>
@@ -259,7 +271,7 @@
             <t>
                 NOTE: The procedures in this section are generalizations of procedures first
                 specified in SRTP-DTLS <xref format="default" pageno="false" target="RFC5763"/>,
-                with the addition of usage of the SDP 'dtls-id' attribute. That document is
+                with the addition of usage of the SDP 'tls-id' attribute. That document is
                 herein updated to make use of these new procedures.
             </t>
             <t>
@@ -302,11 +314,11 @@
                     </t>
                     <t>
                         The SDP 'fingerprint' attribute, defined in <xref format="default"
-                        pageno="false" target="I-D.ietf-mmusic-4572-update"/>, is used to
+                        pageno="false" target="RFC8122"/>, is used to
                         provide one or more fingerprint values; and
                     </t>
                     <t>
-                        The SDP 'dtls-id' attribute, defined in this specification, is used to identity
+                        The SDP 'tls-id' attribute, defined in this specification, is used to identity
                         the DTLS association.
                     </t>
                 </list>
@@ -324,22 +336,22 @@
             </t>
             <t>
                 Endpoints MUST support the cipher suites as defined in
-                <xref format="default" pageno="false" target="I-D.ietf-mmusic-4572-update"/>.
+                <xref format="default" pageno="false" target="RFC8122"/>.
             </t>
             <t>
                 The certificate received during the DTLS handshake MUST match a certificate
                 fingerprints received in SDP 'fingerprint' attributes according to the procedures
-                defined in <xref format="default" pageno="false" target="I-D.ietf-mmusic-4572-update"/>.
+                defined in <xref format="default" pageno="false" target="RFC8122"/>.
                 If fingerprints do not match the hashed certificate, then an endpoint MUST tear
                 down the media session immediately (see <xref format="default" pageno="false"
-                target="I-D.ietf-mmusic-4572-update"/>). Note that it is permissible to wait until
+                target="RFC8122"/>). Note that it is permissible to wait until
                 the other side's fingerprint(s) has been received before establishing the connection;
                 however, this may have undesirable latency effects.
             </t>
             <t>
                 SDP offerers and answerers might reuse certificates across multiple DTLS
                 associations, and provide identical fingerprint values for each DTLS
-                association. The combination of the SDP 'dtls-id' attribute values of the SDP
+                association. The combination of the SDP 'tls-id' attribute values of the SDP
                 offerer and answerer identifies each individual DTLS association.
             </t>
         </section>
@@ -349,8 +361,8 @@
                 When an offerer sends the initial offer, the offerer MUST insert an SDP 'setup' attribute
                 according to the procedures in <xref format="default" pageno="false" target="RFC4145"/>, and
                 one or more SDP 'fingerprint' attributes according to the procedures in <xref format="default"
-                pageno="false" target="I-D.ietf-mmusic-4572-update"/>.
-                In addition, the offerer MUST insert in the offer an SDP 'dtls-id' attribute with a unique value.
+                pageno="false" target="RFC8122"/>.
+                In addition, the offerer MUST insert in the offer an SDP 'tls-id' attribute with a unique value.
             </t>
             <t>
                 If the offerer inserts the SDP 'setup' attribute with an 'actpass' or 'passive' attribute value, the
@@ -363,11 +375,11 @@
                 When an answerer sends an answer, the answerer MUST insert in the answer an SDP 'setup' attribute
                 according to the procedures in <xref format="default" pageno="false" target="RFC4145"/>, and one
                 or more SDP 'fingerprint' attributes according to the procedures in <xref format="default"
-                pageno="false" target="I-D.ietf-mmusic-4572-update"/>.
+                pageno="false" target="RFC8122"/>.
                 If the answerer determines, based on the criteria specified in <xref target="sec-dtls-gen"/>,
                 that a new DTLS association is to be established, the answerer MUST insert in the associated answer
-                an SDP 'dtls-id' attribute with a new unique value. Note that the offerer and answerer generate
-                their own local 'dtls-id' attribute values, and the combination of both values identify the
+                an SDP 'tls-id' attribute with a new unique value. Note that the offerer and answerer generate
+                their own local 'tls-id' attribute values, and the combination of both values identify the
                 DTLS association.
             </t>
             <t>
@@ -379,14 +391,14 @@
             <t>
                 If an answerer receives an offer that does not require the establishment of a new DTLS association,
                 and if the answerer determines that a new DTLS association is not to be established,
-                the answerer MUST insert an SDP 'dtls-id' attribute with the previously assigned value in the
+                the answerer MUST insert an SDP 'tls-id' attribute with the previously assigned value in the
                 associated answer. In addition, the answerer MUST insert an SDP 'setup' attribute with a
                 value that does not change the previously negotiated DTLS roles, and one or more SDP 'fingerprint'
                 attributes values that do not change the previously sent fingerprint set, in the associated answer.
             </t>
             <t>
-                If the answerer receives an offer that does not contain an SDP 'dtls-id' attribute,
-                the answerer MUST NOT insert a 'dtls-id' attribute in the answer.
+                If the answerer receives an offer that does not contain an SDP 'tls-id' attribute,
+                the answerer MUST NOT insert a 'tls-id' attribute in the answer.
             </t>
             <t>
                 If a new DTLS association is to be established, and if the answerer inserts an SDP 'setup'
@@ -420,13 +432,13 @@
                 DTLS association, the offerer MUST insert an SDP 'setup' attribute
                 according to the procedures in <xref format="default" pageno="false" target="RFC4145"/>, and
                 one or more SDP 'fingerprint' attributes according to the procedures in <xref format="default"
-                pageno="false" target="I-D.ietf-mmusic-4572-update"/>.
-                In addition, the offerer MUST insert in the offer an SDP 'dtls-id' attribute with a new unique value.
+                pageno="false" target="RFC8122"/>.
+                In addition, the offerer MUST insert in the offer an SDP 'tls-id' attribute with a new unique value.
              </t>
              <t>
                 When the offerer sends a subsequent offer, and the offerer does not want to establish
                 a new DTLS association, and if a previously established DTLS association exists, the
-                offerer MUST insert an SDP 'dtls-id' attribute with the previously assigned value in the offer.
+                offerer MUST insert an SDP 'tls-id' attribute with the previously assigned value in the offer.
                 In addition, the offerer MUST insert an SDP 'setup' attribute, and one or more SDP 'fingerprint' attributes with
                 values that do not change the previously sent fingerprint set, in the offer. The value of the 'setup'
                 attribute SHOULD be set to 'actpass', in order to allow the answerer to establish a new DTLS
@@ -490,6 +502,73 @@
         </section>
     </section>
 
+    <section title="TLS Considerations" anchor="sec-tls-cons">
+        <t>
+            The procedures in this document can also be used for negotiating and
+            establishing aTLS connection, with the restriction described below.
+        </t>
+        <t>
+            As specified in <xref format="default" pageno="false" target="RFC4145"/>,
+            the SDP 'connection' attribute is used to indicate whether to establish a new
+            TLS connection. An offerer and answerer MUST ensure that the 'connection'
+            attribute value and the 'tls-id' attribute value does not cause a conflict
+            regarding whether a new TLS connection is to be established or not.
+        </t>
+        <t>
+            NOTE: Even though the SDP 'connection' attribute can be used to indicate
+            whether a new TLS connection is to be established, the unique combination
+            of SDP 'tls-id' attribute values can be used to identity a TLS connection.
+            The unique value can be used e.g., within TLS protocol extensions to differentiate
+            between mulitple TLS connections and correlate those connections with specific
+            offer/answer exchanges.
+        </t>
+        <t>
+            If an offerer or answerer inserts an SDP 'connection' attribute with a 'new'
+            value in the offer/answer, the offerer/answerer MUST also insert an SDP 'tls-id'
+            attribute with a new unique value.
+        </t>
+        <t>
+            If an offerer or answerer inserts an SDP 'connection' attribute with a 'existing'
+            value in the offer/answer, and if a previously established TLS connection exists,
+            the offerer/answerer MUST also insert an SDP 'tls-id' attribute with the previously
+            assigned value in the offer/answer.
+        </t>
+        <t>
+            If an offerer or answerer receives an offer/answer with conflicting attribute values,
+            the offerer/answerer MUST process the offer/answer as misformed.
+        </t>
+        <t>
+            An endpoint must not make assumptions regarding the support of the SDP 'tls-id'
+            attribute by the peer. Therefore, to avoid ambiguity, both offerers and answerers
+            MUST always use the 'connection' attribute in conjunction with the 'tls-id' attribute.
+        </t>
+        <t>
+            NOTE: As defined in <xref format="default" pageno="false" target="RFC4145"/>, if the
+            SDP 'connection' attribute is not explicitly present, the implicit default value is 'new'.
+        </t>
+        <t>
+            The SDP example below is based on the example in section 3.4 of
+            <xref format="default" pageno="false" target="RFC3261"/>, with the addition of
+            the SDP 'tls-id' attribute.
+        </t>
+        <figure>
+            <artwork align="left"><![CDATA[
+
+ m=image 54111 TCP/TLS t38
+ c=IN IP4 192.0.2.2
+ a=tls-id:abc3de65cddef001be82
+ a=setup:passive
+ a=connection:new
+ a=fingerprint:SHA-256 \
+  12:DF:3E:5D:49:6B:19:E5:7C:AB:4A:AD:B9:B1:3F:82:18:3B:54:02:12:DF: \
+  3E:5D:49:6B:19:E5:7C:AB:4A:AD
+ a=fingerprint:SHA-1 \
+  4A:AD:B9:B1:3F:82:18:3B:54:02:12:DF:3E:5D:49:6B:19:E5:7C:AB
+
+            ]]></artwork>
+        </figure>
+    </section>
+
     <section title="SIP Considerations">
         <t>
             When the Session Initiation Protocol (SIP) <xref format="default" pageno="false"
@@ -504,7 +583,7 @@
             an INVITE request is often referred to as an 'empty INVITE', or an 'offer-less INVITE'.
             The receiving endpoint will include the SDP offer in a response to the request.
             When the endpoint generates such SDP offer, if a previously established
-            DTLS association exists, the offerer MUST insert an SDP 'dtls-id'
+            DTLS association exists, the offerer MUST insert an SDP 'tls-id'
             attribute, and one or more SDP 'fingerprint' attributes, with previously assigned
             attribute values. If a previously established DTLS association did not exist,
             the offer MUST be generated based on the same rules as a new offer (see <xref target="sec-oa-offer"/>).
@@ -513,7 +592,6 @@
             target="RFC4145"/> and if ICE is used, ICE restart MUST be initiated.
         </t>
     </section>
-
 
     <section title="RFC Updates">
         <section title="General">
@@ -936,7 +1014,7 @@ NEW TEXT:
         <t>
             This specification does not modify the security considerations associated with DTLS, or
             the SDP offer/answer mechanism. In addition to the introduction of the SDP
-            'dtls-id' attribute, the specification simply clarifies the procedures for
+            'tls-id' attribute, the specification simply clarifies the procedures for
             negotiating and establishing a DTLS association.
         </t>
     </section>
@@ -945,17 +1023,17 @@ NEW TEXT:
         <t>
             This document updates the "Session Description Protocol Parameters" registry
             as specified in Section 8.2.2 of <xref target="RFC4566" pageno="false" format="default"/>.
-            Specifically, it adds the SDP 'dtls-id' attribute to the table for SDP
+            Specifically, it adds the SDP 'tls-id' attribute to the table for SDP
             media level attributes.
         </t>
         <figure>
             <artwork align="left"><![CDATA[
 
-    Attribute name: dtls-id
+    Attribute name: tls-id
     Type of attribute: media-level
     Subject to charset: no
-    Purpose: Indicates whether a new DTLS association is to be
-     established/re-established.
+    Purpose: Indicates whether a new DTLS association or TLS connection
+     is to be established/re-established.
     Appropriate Values: see Section 4
     Contact name: Christer Holmberg
     Mux Category: IDENTICAL
@@ -974,6 +1052,11 @@ NEW TEXT:
 
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-22
+            <list style="symbols">
+                <t>Support for TLS added.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-21
             <list style="symbols">
                 <t>Changes based on AD review by Ben Campbell.</t>
@@ -982,7 +1065,7 @@ NEW TEXT:
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-20
             <list style="symbols">
-                <t>Change to length and randomness of dtls-id attribute value.</t>
+                <t>Change to length and randomness of tls-id attribute value.</t>
             </list>
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-19
@@ -993,7 +1076,7 @@ NEW TEXT:
         <t>Changes from draft-ietf-mmusic-sdp-dtls-18
             <list style="symbols">
                 <t>Changes based on comments from Flemming.</t>
-                <t>- Change in dtls-id value definition.</t>
+                <t>- Change in tls-id value definition.</t>
                 <t>- Editorial fixes.</t>
             </list>
         </t>
@@ -1010,7 +1093,7 @@ NEW TEXT:
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-15
             <list style="symbols">
-                <t>dtls-id attribute value made globally unique</t>
+                <t>tls-id attribute value made globally unique</t>
             </list>
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-14
@@ -1034,13 +1117,13 @@ NEW TEXT:
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-11
             <list style="symbols">
-                <t>Attribute name changed to dtls-id</t>
+                <t>Attribute name changed to tls-id</t>
                 <t>Additional text based on comments from Roman Shpount.</t>
             </list>
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-10
             <list style="symbols">
-                <t>Modified document to use dtls-id instead of dtls-connection</t>
+                <t>Modified document to use tls-id instead of dtls-connection</t>
                 <t>Changes are based on comments from Eric Rescorla, Justin Uberti, and Paul Kyzivat.</t>
             </list>
         </t>
@@ -1063,7 +1146,7 @@ NEW TEXT:
                 <t>Normative text regarding mux category and source-specific applicability added.</t>
                 <t>Reference to RFC 7315 added.</t>
                 <t>Clarified that offerer/answerer that has not been updated to support this specification will
-                not include the dtls-id attribute in offers and answers.</t>
+                not include the tls-id attribute in offers and answers.</t>
                 <t>Editorial corrections based on WGLC comments from Charles Eckel.</t>
             </list>
         </t>
@@ -1080,7 +1163,7 @@ NEW TEXT:
         <t>Changes from draft-ietf-mmusic-sdp-dtls-03
             <list style="symbols">
                 <t>Changes based on comments from Paul Kyzivat:</t>
-                <t>- Modification of dtls-id attribute section.</t>
+                <t>- Modification of tls-id attribute section.</t>
                 <t>- Removal of IANA considerations subsection.</t>
                 <t>- Making note into normative text in o/a section.</t>
                 <t>Changes based on comments from Martin Thompson:</t>
@@ -1095,7 +1178,7 @@ NEW TEXT:
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-01
             <list style="symbols">
-                <t>- Annex regarding 'dtls-id-id' attribute removed.</t>
+                <t>- Annex regarding 'tls-id-id' attribute removed.</t>
                 <t>- Additional SDP offer/answer procedures, related to certificates, added.</t>
                 <t>- Updates to RFC 5763 and RFC 7345 added.</t>
                 <t>- Transport protocol considerations added.</t>
@@ -1103,9 +1186,9 @@ NEW TEXT:
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-00
             <list style="symbols">
-                <t>- SDP 'connection' attribute replaced with new 'dtls-id' attribute.</t>
+                <t>- SDP 'connection' attribute replaced with new 'tls-id' attribute.</t>
                 <t>- IANA Considerations added.</t>
-                <t>- E-mail regarding 'dtls-id-id' attribute added as Annex.</t>
+                <t>- E-mail regarding 'tls-id-id' attribute added as Annex.</t>
             </list>
         </t>
         <t>Changes from draft-holmberg-mmusic-sdp-dtls-01
@@ -1136,8 +1219,8 @@ NEW TEXT:
         <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5763"?>
         <?rfc include="reference.RFC.7345"?>
+        <?rfc include="reference.RFC.8122"?>
         <?rfc include="reference.I-D.draft-ietf-ice-rfc5245bis-08"?>
-        <?rfc include="reference.I-D.draft-ietf-mmusic-4572-update-13"?>
         <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-mux-attributes-16"?>
         <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-bundle-negotiation-36"?>
     </references>
