@@ -601,11 +601,9 @@
             </t>
         </section>
         <section title="Update to RFC 5763">
+          <section title="Update to section 5">
             <figure>
                 <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
-
-Update to section 5:
---------------------
 
 OLD TEXT:
 
@@ -777,9 +775,12 @@ NEW TEXT:
 
    [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
    of this document.]
-
-Update to section 6.6:
-----------------------
+          ]]></artwork>
+        </figure>
+     </section>
+     <section title="Update to section 6.6">
+       <figure>
+           <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
 
 OLD TEXT:
 
@@ -808,9 +809,12 @@ NEW TEXT:
 
    [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
    of this document.]
-
-Update to section 6.7.1:
-------------------------
+   ]]></artwork>
+ </figure>
+</section>
+<section title="Update to section 6.7.1">
+<figure>
+    <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
 
 OLD TEXT:
 
@@ -844,16 +848,15 @@ NEW TEXT:
    are described in [RFCXXXX].
                 ]]></artwork>
             </figure>
+          </section>
         </section>
         <section title="Update to RFC 7345">
+          <section title="Update to section 4">
             <figure>
                 <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
 
    [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
    of this document.]
-
-Update to section 4:
---------------------
 
 OLD TEXT:
 
@@ -968,10 +971,12 @@ NEW TEXT:
 
    [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
    of this document.]
-
-
-Update to section 5.2.1:
-------------------------
+   ]]></artwork>
+ </figure>
+</section>
+<section title="Update to section 5.2.1">
+<figure>
+    <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
 
 OLD TEXT:
 
@@ -1007,6 +1012,7 @@ NEW TEXT:
 
                 ]]></artwork>
             </figure>
+          </section>
         </section>
     </section>
 
@@ -1216,7 +1222,6 @@ NEW TEXT:
         <?rfc include="reference.RFC.3264"?>
         <?rfc include="reference.RFC.4145"?>
         <?rfc include="reference.RFC.4566"?>
-        <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5763"?>
         <?rfc include="reference.RFC.7345"?>
         <?rfc include="reference.RFC.8122"?>
@@ -1226,6 +1231,7 @@ NEW TEXT:
     </references>
     <references title="Informative References">
         <?rfc include="reference.RFC.4474"?>
+        <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5245"?>
         <?rfc include="reference.RFC.5576"?>
         <?rfc include="reference.RFC.5764"?>
