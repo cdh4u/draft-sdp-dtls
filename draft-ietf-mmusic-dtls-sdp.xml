@@ -280,12 +280,12 @@
            </t>
             <t>
                 When an offerer or answerer indicates that it wants to establish a new DTLS association, it needs to make sure that
-                media packets in any existing DTLS association and new DTLS association can be de-multiplexed. In case
+                media packets associated with any previously established DTLS association and the new DTLS association can be de-multiplexed. In case
                 of an ordered transport (e.g., SCTP) this can be done simply by sending packets for the new DTLS association
-                after all packets for the existing DTLS association have been sent. In case of an unordered transport, such as
-                UDP, packets for the old DTLS association can arrive after the answer SDP was received and after the first
-                packets for the new DTLS association were received. The only way to de-multiplex packets belonging to
-                the old and new DTLS association is on the basis of transport 5-tuple. Because of this, if an unordered transport
+                after all packets associated with a previously established DTLS association has been sent. In case of an unordered transport, such as
+                UDP, packets associated with a previously established DTLS association can arrive after the answer SDP was received and after the first
+                packets associated with the new DTLS association were received. The only way to de-multiplex packets associated with
+                with a previously established DTLS association and the new DTLS association is on the basis of transport 5-tuple. Because of this, if an unordered transport
                 is used for the DTLS association, a new transport (3-tuple) must be allocated by at least one of the endpoints
                 so that DTLS packets can be de-multiplexed.
             </t>
