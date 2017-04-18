@@ -603,11 +603,9 @@
             </t>
         </section>
         <section title="Update to RFC 5763">
+          <section title="Update to section 5">
             <figure>
                 <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
-
-Update to section 5:
---------------------
 
 OLD TEXT:
 
@@ -777,11 +775,12 @@ NEW TEXT:
    The offerer and answerer MUST follow the SDP offer/answer procedures
    defined in [RFCXXXX].
 
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
-
-Update to section 6.6:
-----------------------
+          ]]></artwork>
+        </figure>
+     </section>
+     <section title="Update to section 6.6">
+       <figure>
+           <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
 
 OLD TEXT:
 
@@ -808,11 +807,12 @@ NEW TEXT:
    UPDATE request. The peers can reuse an existing DTLS association,
    or establish a new one, following the procedures in [RFCXXXX].
 
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
-
-Update to section 6.7.1:
-------------------------
+   ]]></artwork>
+ </figure>
+</section>
+<section title="Update to section 6.7.1">
+<figure>
+    <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
 
 OLD TEXT:
 
@@ -846,16 +846,12 @@ NEW TEXT:
    are described in [RFCXXXX].
                 ]]></artwork>
             </figure>
+          </section>
         </section>
         <section title="Update to RFC 7345">
+          <section title="Update to section 4">
             <figure>
                 <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
-
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
-
-Update to section 4:
---------------------
 
 OLD TEXT:
 
@@ -968,12 +964,12 @@ NEW TEXT:
    the offerer and answerer MUST use the SDP attributes defined for
    UDPTL over UDP, as defined in [ITU.T38.2010].
 
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
-
-
-Update to section 5.2.1:
-------------------------
+   ]]></artwork>
+ </figure>
+</section>
+<section title="Update to section 5.2.1">
+<figure>
+    <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
 
 OLD TEXT:
 
@@ -1004,11 +1000,12 @@ NEW TEXT:
    [I-D.ietf-ice-rfc5245bis] considerations for DTLS-protected media
    are described in [RFCXXXX].
 
-   [RFC EDITOR NOTE: Please replace RFCXXXX with the RFC number
-   of this document.]
+   [RFC EDITOR NOTE: Througout the document, please replace RFCXXXX
+   with the RFC number of this document.]
 
                 ]]></artwork>
             </figure>
+          </section>
         </section>
     </section>
 
@@ -1219,7 +1216,6 @@ NEW TEXT:
         <?rfc include="reference.RFC.3264"?>
         <?rfc include="reference.RFC.4145"?>
         <?rfc include="reference.RFC.4566"?>
-        <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5763"?>
         <?rfc include="reference.RFC.7345"?>
         <?rfc include="reference.RFC.8122"?>
@@ -1229,6 +1225,7 @@ NEW TEXT:
     </references>
     <references title="Informative References">
         <?rfc include="reference.RFC.4474"?>
+        <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5245"?>
         <?rfc include="reference.RFC.5576"?>
         <?rfc include="reference.RFC.5764"?>
