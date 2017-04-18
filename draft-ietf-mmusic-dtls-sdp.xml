@@ -88,7 +88,8 @@
                 MUST be established when transport parameters are changed. Transport parameter change is not
                 well defined when Interactive Connectivity Establishment (ICE) <xref format="default"
                 pageno="false" target="I-D.ietf-ice-rfc5245bis"/> is used. One possible way to determine a transport change is
-                based on ufrag change, but the ufrag value is changed both when ICE is negotiated
+                based on ufrag <xref format="default" pageno="false" target="I-D.ietf-ice-rfc5245bis"/> change,
+                but the ufrag value is changed both when ICE is negotiated
                 and when ICE restart <xref format="default" pageno="false" target="I-D.ietf-ice-rfc5245bis"/> occurs. These events
                 do not always require a new DTLS association to be established, but currently there is no way
                 to explicitly indicate in an SDP offer or answer whether a new DTLS association is required.
@@ -214,7 +215,7 @@
             intends to reuse the existing DTLS association.
         </t>
         <t>
-            The 'tls-id' attribute value MUST be generated using a cryptographic random function
+            The 'tls-id' attribute value MUST be generated using a strong random function
             and include at least 120 bits of randomness.
         </t>
         <t>
@@ -1055,6 +1056,7 @@ NEW TEXT:
         <t>Changes from draft-ietf-mmusic-sdp-dtls-22
             <list style="symbols">
                 <t>Support for TLS added.</t>
+                <t>Editorial changes based on sec-dir review by Rich Salz.</t>
             </list>
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-21
