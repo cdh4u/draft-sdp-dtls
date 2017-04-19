@@ -526,14 +526,15 @@
         </t>
         <t>
             If an offerer or answerer inserts an SDP 'connection' attribute with a 'new'
-            value in the offer/answer, the offerer/answerer MUST also insert an SDP 'tls-id'
-            attribute with a new unique value.
+            value in the offer/answer and also inserts an SDP 'tls-id' attribute,
+            the value of tls-id' attribute MUST be new and unique.
         </t>
         <t>
             If an offerer or answerer inserts an SDP 'connection' attribute with a 'existing'
-            value in the offer/answer, and if a previously established TLS connection exists,
-            the offerer/answerer MUST also insert an SDP 'tls-id' attribute with the previously
-            assigned value in the offer/answer.
+            value in the offer/answer, if a previously established TLS connection exists, and
+            if the offerer/answerer previously inserted an SDP 'tls-id' attribute associated with
+            the same TLS connection in an offer/answer, the offerer/answerer MUST also insert
+            an SDP 'tls-id' attribute with the previously assigned value in the offer/answer.
         </t>
         <t>
             If an offerer or answerer receives an offer/answer with conflicting attribute values,
@@ -1051,6 +1052,12 @@ NEW TEXT:
 
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-23
+            <list style="symbols">
+                <t>Editrial change to make it clear that the document does not
+                   modify the procedures in RFC 8122.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-22
             <list style="symbols">
                 <t>Support for TLS added.</t>
