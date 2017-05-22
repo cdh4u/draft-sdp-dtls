@@ -386,9 +386,11 @@
             <t>
                 If the offerer inserts the SDP 'setup' attribute with an 'actpass' or 'passive' attribute value, the
                 offerer MUST be prepared to receive a DTLS ClientHello message (if a new DTLS association
-                is established by the answerer) from the answerer before the offerer receives the SDP answer. In such
-                case the offerer MAY cache the ClientHello message, but the offerer MUST NOT initiate a DTLS
-                handshake until it has received the answer.
+                is established by the answerer) from the answerer before the offerer receives the SDP answer.
+                In such case the offerer can either cache the ClientHello message, or initiate a DTLS handshake.
+                However, by initiating the DTLS handshake before the SDP answer has arrived the offerer will be
+                vulnerable for attacks, and the offerer MUST consider any media received before the SDP answer
+                as unauthenticated.
             </t>
         </section>
         <section title="Generating the Answer" anchor="sec-oa-answer">
