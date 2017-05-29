@@ -388,10 +388,9 @@
                 offerer MUST be prepared to receive a DTLS ClientHello message (if a new DTLS association
                 is established by the answerer) from the answerer before the offerer receives the SDP answer.
                 In such case the offerer can either cache the ClientHello message, or initiate a DTLS handshake.
-                However, the offerer MUST NOT finalize the DTLS handshake before it has received the SDP answer.
-                Also, by initiating the DTLS handshake before the SDP answer has arrived the offerer will be
-                vulnerable for attacks, and the offerer MUST consider any media received before the SDP answer
-                as unauthenticated.
+                However, the offerer MUST NOT complete the DTLS handshake before it has received the SDP answer.
+                If the offerer chooses to process data received before the SDP answer, the offerer MUST consider
+                such data unauthenticated.
             </t>
         </section>
         <section title="Generating the Answer" anchor="sec-oa-answer">
