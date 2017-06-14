@@ -387,10 +387,13 @@
                 If the offerer inserts the SDP 'setup' attribute with an 'actpass' or 'passive' attribute value, the
                 offerer MUST be prepared to receive a DTLS ClientHello message (if a new DTLS association
                 is established by the answerer) from the answerer before the offerer receives the SDP answer.
-                In such case the offerer can either cache the ClientHello message, or initiate a DTLS handshake.
-                However, the offerer MUST NOT complete the DTLS handshake before it has received the SDP answer.
-                If the offerer chooses to process data received before the SDP answer, the offerer MUST consider
-                such data unauthenticated.
+            </t>
+            <t>
+                NOTE: If the offerer receives a DTLS ClientHello message, and a DTLS association is established,
+                before the offerer receives the SDP Answer carrying the fingerprint associated with the DTLS
+                association, any data received on the DTLS association before the fingerprint is received is to be
+                considered coming from an unverified source. The processing of such data is outside the scope of
+                this document.
             </t>
         </section>
         <section title="Generating the Answer" anchor="sec-oa-answer">
@@ -602,6 +605,14 @@
             established between the caller and multiple callees. This is referred to as forking.
             If forking occurs, separate DTLS associations will be established between the caller
             and each callee.
+        </t>
+        <t>
+            When forking occurs, an SDP offerer can receive DTLS ClientHello messages and SDP
+            answerers from multiple remote locations. Because of this, the offerer might have to
+            wait for multiple SDP answers (from different remote locations) until it receives
+            a certificate fingerprint that matches the certificate associated with a specific
+            DTLS handshake. The offerer MUST NOT decleare a fingerprint mismatch until it
+            determines that it will not receive SDP answers from any additional remote locations.
         </t>
         <t>
             It is possible to send an INVITE request which does not contain an SDP offer. Such
