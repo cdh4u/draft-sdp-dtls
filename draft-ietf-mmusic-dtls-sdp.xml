@@ -363,7 +363,7 @@
                 offerer will end up being used for multiple DTLS associations. For that reason
                 the combination of the attribute values of the offerer and answerer is needed
                 in order to identity a DTLS association. An example of such case is where the
-                offerer sends an update offer (<xref target="sec-oa-mod"/>), without modifying its
+                offerer sends an updated offer (<xref target="sec-oa-mod"/>), without modifying its
                 attribute value, but the answerer determines that a new DTLS association is to
                 be created. The answerer will generate a new local attribute value for the new
                 DTLS association (<xref target="sec-oa-answer"/>), while the offerer will use the
