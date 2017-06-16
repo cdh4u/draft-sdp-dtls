@@ -389,11 +389,11 @@
                 is established by the answerer) from the answerer before the offerer receives the SDP answer.
             </t>
             <t>
-                NOTE: If the offerer receives a DTLS ClientHello message, and a DTLS association is established,
+                If the offerer receives a DTLS ClientHello message, and a DTLS association is established,
                 before the offerer receives the SDP Answer carrying the fingerprint associated with the DTLS
-                association, any data received on the DTLS association before the fingerprint is received is to be
+                association, any data received on the DTLS association before the fingerprint MUST be
                 considered coming from an unverified source. The processing of such data is outside the scope of
-                this document.
+                this document. The offerer MUST NOT send any data before the DTLS assocation has been established.
             </t>
         </section>
         <section title="Generating the Answer" anchor="sec-oa-answer">
