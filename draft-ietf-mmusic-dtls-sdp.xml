@@ -392,8 +392,8 @@
                 If the offerer receives a DTLS ClientHello message, and a DTLS association is established,
                 before the offerer receives the SDP Answer carrying the fingerprint associated with the DTLS
                 association, any data received on the DTLS association before the fingerprint MUST be
-                considered coming from an unverified source. The processing of such data is outside the scope of
-                this document. The offerer MUST NOT send any data before the DTLS assocation has been established.
+                considered coming from an unverified source. The processing of such data, and sending of data
+                by the offerer to the unverified source, is outside the scope of this document.
             </t>
         </section>
         <section title="Generating the Answer" anchor="sec-oa-answer">
@@ -829,6 +829,7 @@ NEW TEXT:
                 <t>Changes based on 2nd WGLC comments from Roman S and Martin T:</t>
                 <t>- RFC update structure shortened (old text removed).</t>
                 <t>- Guidance regarding receiving ClientHello before SDP answer added.</t>
+                <t>- Additional SIP condierations regarding forking.</t>
             </list>
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-23
