@@ -378,13 +378,13 @@
         <section title="Generating the Initial SDP Offer" anchor="sec-oa-offer">
             <t>
                 When an offerer sends the initial offer, the offerer MUST insert an SDP 'setup' attribute
-                according to the procedures in <xref format="default" pageno="false" target="RFC4145"/>, and
+                <xref format="default" pageno="false" target="RFC4145"/> with an 'actpass' attribute value, and
                 one or more SDP 'fingerprint' attributes according to the procedures in <xref format="default"
-                pageno="false" target="RFC8122"/>.
-                In addition, the offerer MUST insert in the offer an SDP 'tls-id' attribute with a unique value.
+                pageno="false" target="RFC8122"/>. In addition, the offerer MUST insert in the offer an SDP
+                'tls-id' attribute with a unique value.
             </t>
             <t>
-                If the offerer inserts the SDP 'setup' attribute with an 'actpass' or 'passive' attribute value, the
+                As the offerer inserts the SDP 'setup' attribute with an 'actpass' attribute value, the
                 offerer MUST be prepared to receive a DTLS ClientHello message (if a new DTLS association
                 is established by the answerer) from the answerer before the offerer receives the SDP answer.
             </t>
@@ -468,8 +468,8 @@
                 offerer MUST insert an SDP 'tls-id' attribute with the previously assigned value in the offer.
                 In addition, the offerer MUST insert an SDP 'setup' attribute, and one or more SDP 'fingerprint' attributes with
                 values that do not change the previously sent fingerprint set, in the offer. The value of the 'setup'
-                attribute SHOULD be set to 'actpass', in order to allow the answerer to establish a new DTLS
-                association with a different role, but MAY be set to the current negotiated role ('active' or
+                attribute MUST be set to either 'actpass', in order to allow the answerer to establish a new DTLS
+                association with a different role, or to the current negotiated role ('active' or
                 'passive'). It MUST NOT be set to a value that changes the current negotiated role.
             </t>
             <t>
@@ -830,6 +830,7 @@ NEW TEXT:
                 <t>- RFC update structure shortened (old text removed).</t>
                 <t>- Guidance regarding receiving ClientHello before SDP answer added.</t>
                 <t>- Additional SIP condierations regarding forking.</t>
+                <t>- SDP setup attribute value restriction in initial offer based on comment from Ekr.</t>
             </list>
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-23
