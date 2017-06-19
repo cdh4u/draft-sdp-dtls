@@ -431,6 +431,12 @@
                 attribute with an 'active' value in the answer, the answerer MUST initiate a DTLS handshake by
                 sending a DTLS ClientHello message towards the offerer.
             </t>
+            <t>
+                NOTE: Eventhough an offerer is required to insert an 'SDP' setup attribute with an 'actpass' value
+                in an initial offer (<xref target="sec-oa-offer"/>), the answerer is required to be able to receive
+                initial offers with other values, in order to be backward compatible with older implementations
+                that might insert other attribute values in initial offers.
+            </t>
         </section>
         <section title="Offerer Processing of the SDP Answer">
             <t>
