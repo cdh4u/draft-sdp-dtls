@@ -381,7 +381,7 @@
                 <xref format="default" pageno="false" target="RFC4145"/> with an 'actpass' attribute value, and
                 one or more SDP 'fingerprint' attributes according to the procedures in <xref format="default"
                 pageno="false" target="RFC8122"/>. In addition, the offerer MUST insert in the offer an SDP
-                'tls-id' attribute with a unique value.
+                'tls-id' attribute with a unique attribute value.
             </t>
             <t>
                 As the offerer inserts the SDP 'setup' attribute with an 'actpass' attribute value, the
@@ -404,7 +404,7 @@
                 pageno="false" target="RFC8122"/>.
                 If the answerer determines, based on the criteria specified in <xref target="sec-dtls-gen"/>,
                 that a new DTLS association is to be established, the answerer MUST insert in the associated answer
-                an SDP 'tls-id' attribute with a new unique value. Note that the offerer and answerer generate
+                an SDP 'tls-id' attribute with a new unique attribute value. Note that the offerer and answerer generate
                 their own local 'tls-id' attribute values, and the combination of both values identify the
                 DTLS association.
             </t>
@@ -417,9 +417,9 @@
             <t>
                 If an answerer receives an offer that does not require the establishment of a new DTLS association,
                 and if the answerer determines that a new DTLS association is not to be established,
-                the answerer MUST insert an SDP 'tls-id' attribute with the previously assigned value in the
-                associated answer. In addition, the answerer MUST insert an SDP 'setup' attribute with a
-                value that does not change the previously negotiated DTLS roles, and one or more SDP 'fingerprint'
+                the answerer MUST insert an SDP 'tls-id' attribute with the previously assigned attribute value in the
+                associated answer. In addition, the answerer MUST insert an SDP 'setup' attribute with an
+                attribute value that does not change the previously negotiated DTLS roles, and one or more SDP 'fingerprint'
                 attributes values that do not change the previously sent fingerprint set, in the associated answer.
             </t>
             <t>
@@ -428,14 +428,15 @@
             </t>
             <t>
                 If a new DTLS association is to be established, and if the answerer inserts an SDP 'setup'
-                attribute with an 'active' value in the answer, the answerer MUST initiate a DTLS handshake by
+                attribute with an 'active' attribute value in the answer, the answerer MUST initiate a DTLS handshake by
                 sending a DTLS ClientHello message towards the offerer.
             </t>
             <t>
-                NOTE: Eventhough an offerer is required to insert an 'SDP' setup attribute with an 'actpass' value
-                in an initial offer (<xref target="sec-oa-offer"/>), the answerer is required to be able to receive
-                initial offers with other values, in order to be backward compatible with older implementations
-                that might insert other attribute values in initial offers.
+                Eventhough an offerer is required to insert an 'SDP' setup attribute with an 'actpass' attribute value
+                in initial offers (<xref target="sec-oa-offer"/>) and subsequent offers (<xref target="sec-oa-mod"/>),
+                the answerer MUST be able to receive initial and subsequent offers with other attribute values, in order
+                to be backward compatible with older implementations that might insert other attribute values in initial and
+                subsequent offers.
             </t>
         </section>
         <section title="Offerer Processing of the SDP Answer">
@@ -461,22 +462,20 @@
         </section>
         <section title="Modifying the Session" anchor="sec-oa-mod">
             <t>
-                When the offerer sends a subsequent offer, and if the offerer wants to establish a new
-                DTLS association, the offerer MUST insert an SDP 'setup' attribute
-                according to the procedures in <xref format="default" pageno="false" target="RFC4145"/>, and
-                one or more SDP 'fingerprint' attributes according to the procedures in <xref format="default"
-                pageno="false" target="RFC8122"/>.
-                In addition, the offerer MUST insert in the offer an SDP 'tls-id' attribute with a new unique value.
-             </t>
-             <t>
-                When the offerer sends a subsequent offer, and the offerer does not want to establish
-                a new DTLS association, and if a previously established DTLS association exists, the
-                offerer MUST insert an SDP 'tls-id' attribute with the previously assigned value in the offer.
-                In addition, the offerer MUST insert an SDP 'setup' attribute, and one or more SDP 'fingerprint' attributes with
-                values that do not change the previously sent fingerprint set, in the offer. The value of the 'setup'
-                attribute MUST be set to either 'actpass', in order to allow the answerer to establish a new DTLS
-                association with a different role, or to the current negotiated role ('active' or
-                'passive'). It MUST NOT be set to a value that changes the current negotiated role.
+                When an offerer sends a subsequent offer, and if the offerer wants to establish a new
+                DTLS association, the offerer MUST insert an SDP 'setup' attribute <xref format="default"
+                pageno="false" target="RFC4145"/> with an 'actpass' attribute value, and one or more SDP 'fingerprint'
+                attributes according to the procedures in <xref format="default" pageno="false" target="RFC8122"/>.
+                In addition, the offerer MUST insert in the offer an SDP 'tls-id' attribute with a new unique
+                attribute value.
+            </t>
+            <t>
+                When an offerer sends a subsequent offer, and the offerer does not want to establish
+                a new DTLS association, and if a previously established DTLS association exists,
+                the offerer MUST insert an SDP 'setup' attribute with an 'actpass' attribute value, and
+                one or more SDP 'fingerprint' attributes with attribute values that do not change the previously
+                sent fingerprint set, in the offer. In addition, the offerer MUST insert an SDP 'tls-id'
+                attribute with the previously assigned attribute value in the offer.
             </t>
             <t>
                 NOTE: When a new DTLS association is being established, each endpoint needs to be prepared to receive
@@ -836,7 +835,7 @@ NEW TEXT:
                 <t>- RFC update structure shortened (old text removed).</t>
                 <t>- Guidance regarding receiving ClientHello before SDP answer added.</t>
                 <t>- Additional SIP condierations regarding forking.</t>
-                <t>- SDP setup attribute value restriction in initial offer based on comment from Ekr.</t>
+                <t>- SDP setup attribute value restriction in initial and subsequent offers based on comment from Ekr.</t>
             </list>
         </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-23
