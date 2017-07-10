@@ -432,7 +432,7 @@
                 sending a DTLS ClientHello message towards the offerer.
             </t>
             <t>
-                Eventhough an offerer is required to insert an 'SDP' setup attribute with an 'actpass' attribute value
+                Even though an offerer is required to insert an 'SDP' setup attribute with an 'actpass' attribute value
                 in initial offers (<xref target="sec-oa-offer"/>) and subsequent offers (<xref target="sec-oa-mod"/>),
                 the answerer MUST be able to receive initial and subsequent offers with other attribute values, in order
                 to be backward compatible with older implementations that might insert other attribute values in initial and
@@ -537,7 +537,7 @@
     <section title="TLS Considerations" anchor="sec-tls-cons">
         <t>
             The procedures in this document can also be used for negotiating and
-            establishing aTLS connection, with the restriction described below.
+            establishing a TLS connection, with the restriction described below.
         </t>
         <t>
             As specified in <xref format="default" pageno="false" target="RFC4145"/>,
@@ -581,7 +581,7 @@
         </t>
         <t>
             The SDP example below is based on the example in section 3.4 of
-            <xref format="default" pageno="false" target="RFC3261"/>, with the addition of
+            <xref format="default" pageno="false" target="RFC4572"/>, with the addition of
             the SDP 'tls-id' attribute.
         </t>
         <figure>
@@ -778,7 +778,7 @@ NEW TEXT:
    [I-D.ietf-ice-rfc5245bis] considerations for DTLS-protected media
    are described in [RFCXXXX].
 
-   [RFC EDITOR NOTE: Througout the document, please replace RFCXXXX
+   [RFC EDITOR NOTE: Throughout the document, please replace RFCXXXX
    with the RFC number of this document.]
 
                 ]]></artwork>
@@ -823,12 +823,17 @@ NEW TEXT:
         <t>
             Thanks to Justin Uberti, Martin Thomson, Paul Kyzivat, Jens Guballa,
             Charles Eckel, Gonzalo Salgueiro and Paul Jones for providing comments and
-            suggestions on the document. Ben Campbell performed an AD review.
+            suggestions on the document. Ben Campbell performed an AD review. Paul
+            Kyzivat performed a gen-art review.
         </t>
     </section>
-
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-26
+            <list style="symbols">
+                <t>Editorial fixes based on Gen-ART review by Paul Kyzivat.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-25
             <list style="symbols">
                 <t>Minor editorial nits.</t>
