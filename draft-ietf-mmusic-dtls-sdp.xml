@@ -581,7 +581,7 @@
         </t>
         <t>
             The SDP example below is based on the example in section 3.4 of
-            <xref format="default" pageno="false" target="RFC4572"/>, with the addition of
+            <xref format="default" pageno="false" target="RFC8122"/>, with the addition of
             the SDP 'tls-id' attribute.
         </t>
         <figure>
@@ -653,7 +653,7 @@ NEW TEXT:
    the DTLS handshake procedure using certificates. This document uses
    certificates in the same style as described in "Connection-Oriented
    Media Transport over the Transport Layer Security (TLS) Protocol in
-   the Session Description Protocol (SDP)" [RFC4572].
+   the Session Description Protocol (SDP)" [RFC8122].
 
    If self-signed certificates are used, the content of the
    subjectAltName attribute inside the certificate MAY use the uniform
@@ -784,6 +784,22 @@ NEW TEXT:
                 ]]></artwork>
             </figure>
           </section>
+          <section title="Update to section 10.1">
+              <t>A reference to <xref format="default" pageno="false" target="RFC8122"/> is added to section 10.1 (Normative References):</t>
+            <figure>
+                <artwork align="left" alt="" height="" name="" type="" width="" xml:space="preserve"><![CDATA[
+
+NEW TEXT:
+
+[RFC8122]  Lennox, J. and C. Holmberg, "Connection-Oriented Media
+           Transport over the Transport Layer Security (TLS) Protocol
+           in the Session Description Protocol (SDP)", RFC 8122,
+           DOI 10.17487/RFC8122, March 2017,
+           <http://www.rfc-editor.org/info/rfc8122>.
+
+          ]]></artwork>
+        </figure>
+     </section>
         </section>
     </section>
 
@@ -829,6 +845,11 @@ NEW TEXT:
     </section>
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-27
+            <list style="symbols">
+                <t>Reference fixes based on Gen-ART review by Paul Kyzivat.</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-26
             <list style="symbols">
                 <t>Editorial fixes based on Gen-ART review by Paul Kyzivat.</t>
@@ -1030,8 +1051,6 @@ NEW TEXT:
     </references>
     <references title="Informative References">
         <?rfc include="reference.RFC.4474"?>
-        <?rfc include="reference.RFC.4572"?>
-        <?rfc include="reference.RFC.5245"?>
         <?rfc include="reference.RFC.5576"?>
         <?rfc include="reference.RFC.5764"?>
         <?rfc include="reference.RFC.6083"?>
