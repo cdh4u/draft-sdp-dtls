@@ -642,6 +642,10 @@
             </t>
         </section>
         <section title="Update to RFC 5763">
+          <section title="Update to section 1">
+            <t>The reference to <xref format="default" pageno="false" target="RFC4572"/> is replaced
+            with a reference to <xref format="default" pageno="false" target="RFC8122"/>.</t>
+          </section>
           <section title="Update to section 5">
               <t>The text in section 5 (Establishing a Secure Channel) is replaced with the new text below:</t>
             <figure>
@@ -1051,6 +1055,7 @@ NEW TEXT:
     </references>
     <references title="Informative References">
         <?rfc include="reference.RFC.4474"?>
+        <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5576"?>
         <?rfc include="reference.RFC.5764"?>
         <?rfc include="reference.RFC.6083"?>
