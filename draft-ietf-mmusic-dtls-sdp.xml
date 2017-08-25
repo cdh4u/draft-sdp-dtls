@@ -520,7 +520,7 @@
         </t>
         <t>
             NOTE: Simple Traversal of the UDP Protocol through NAT (STUN) packets are sent directly
-            over UDP, not over DTLS. <xref format="default" pageno="false" target="RFC5764"/> describes
+            over UDP, not over DTLS. <xref format="default" pageno="false" target="RFC7983"/> describes
             how to demultiplex STUN packets from DTLS packets and SRTP packets.
         </t>
         <t>
@@ -638,7 +638,8 @@
             the offer MUST be generated based on the same rules as a new offer (see <xref target="sec-oa-offer"/>).
             Regardless of the previous existence of a DTLS association, the SDP 'setup' attribute
             MUST be included according to the rules defined in <xref format="default" pageno="false"
-            target="RFC4145"/> and if ICE is used, ICE restart MUST be initiated.
+            target="RFC4145"/> and if ICE is used, ICE restart MUST be initiated. This is needed in
+            order to support third party call control, as described in <xref target="I-D.ietf-mmusic-ice-sip-sdp"/>. 
         </t>
     </section>
 
@@ -1081,9 +1082,10 @@ NEW TEXT:
         <?rfc include="reference.RFC.4474"?>
         <?rfc include="reference.RFC.4572"?>
         <?rfc include="reference.RFC.5576"?>
-        <?rfc include="reference.RFC.5764"?>
         <?rfc include="reference.RFC.6083"?>
+        <?rfc include="reference.RFC.7983"?>
         <?rfc include="reference.I-D.draft-ietf-stir-rfc4474bis-16"?>
+        <?rfc include="reference.I-D.draft-ietf-mmusic-ice-sip-sdp-13"?>
         <reference anchor="ITU.T38.2010">
           <front>
           <title>Procedures for real-time Group 3 facsimile communication over IP networks</title>
