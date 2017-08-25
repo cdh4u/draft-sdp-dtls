@@ -463,8 +463,9 @@
             <t>
                 A new DTLS association can be established based on changes in either an SDP offer or answer.
                 When communicating with legacy endpoints, an offerer can receive an answer that includes the same
-                fingerprint set and setup role. A new DTLS association MUST still be established if such an answer
-                was received as a response to an offer which requested the establishment of a new DTLS association.
+                fingerprint set and setup role. A new DTLS association will still be established if such an answer
+                was received as a response to an offer which requested the establishment of a new DTLS association,
+                as the transport parameters would have been changed in the offer.
             </t>
         </section>
         <section title="Modifying the Session" anchor="sec-oa-mod">
