@@ -346,7 +346,7 @@
                 SDP 'setup' attribute 'holdconn' value when negotiating a DTLS association.
             </t>
             <t>
-                Endpoints MUST support the cipher suites as defined in
+                Endpoints MUST support the hash functions as defined in
                 <xref format="default" pageno="false" target="RFC8122"/>.
             </t>
             <t>
@@ -560,7 +560,9 @@
             of SDP 'tls-id' attribute values can be used to identity a TLS connection.
             The unique value can be used e.g., within TLS protocol extensions to differentiate
             between multiple TLS connections and correlate those connections with specific
-            offer/answer exchanges.
+            offer/answer exchanges. One such extension is defined in
+            <xref format="default" pageno="false" target="I-D.ietf-mmusic-sdp-uks"/>.
+            
         </t>
         <t>
             If an offerer or answerer inserts an SDP 'connection' attribute with a 'new'
@@ -868,7 +870,7 @@ NEW TEXT:
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-28
             <list style="symbols">
-                <t>Changes based on IESG review by Adam Roach and Eric Rescorla:</t>
+                <t>Changes based on IESG review by Adam Roach, Eric Rescorla, Alexey Melnikov:</t>
                 <t>- Document title changed</t>
                 <t>- Editorial changes</t>
             </list>
@@ -1086,6 +1088,7 @@ NEW TEXT:
         <?rfc include="reference.RFC.7983"?>
         <?rfc include="reference.I-D.draft-ietf-stir-rfc4474bis-16"?>
         <?rfc include="reference.I-D.draft-ietf-mmusic-ice-sip-sdp-13"?>
+        <?rfc include="reference.I-D.draft-ietf-mmusic-sdp-uks-00"?>
         <reference anchor="ITU.T38.2010">
           <front>
           <title>Procedures for real-time Group 3 facsimile communication over IP networks</title>
