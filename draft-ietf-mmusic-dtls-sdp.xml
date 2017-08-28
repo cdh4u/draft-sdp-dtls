@@ -7,8 +7,8 @@
 <rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-28.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
   <front>
     <title>
-        Establishing Datagram Transport Layer Security (DTLS) Using the Session Description Protocol (SDP) Offer/Answer Mechanism 
-        and Identification of Transport Layer Security (TLS) Connections in SDP
+        Session Description Protocol (SDP) Offer/Answer Considerations for Datagram Transport Layer Security (DTLS)
+        and Transport Layer Security (TLS)
     </title>
     <author fullname="Christer Holmberg" initials="C.H." surname="Holmberg">
         <organization abbrev="Ericsson">Ericsson</organization>
