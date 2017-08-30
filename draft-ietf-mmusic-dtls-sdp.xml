@@ -533,17 +533,6 @@
         </t>
     </section>
 
-    <section title="Transport Protocol Considerations" anchor="sec-dtls-cons-trans">
-        <section title="Transport Re-Usage" anchor="sec-dtls-cons-trans-reuse">
-            <t>
-                If DTLS is transported on top of a connection-oriented transport protocol (e.g., TCP or SCTP),
-                where all IP packets are acknowledged, all DTLS packets associated with a previous
-                DTLS association MUST be acknowledged (or timed out) before a new DTLS association
-                can be established on the same instance of that transport (5-tuple).
-            </t>
-        </section>
-    </section>
-
     <section title="TLS Considerations" anchor="sec-tls-cons">
         <t>
             The procedures in this document can also be used for negotiating and
@@ -835,6 +824,12 @@ NEW TEXT:
             'tls-id' attribute, the specification simply clarifies the procedures for
             negotiating and establishing a DTLS association.
         </t>
+        <t>
+            This specification does not modify the actual TLS connection setup procedures. The
+            SDP 'tls-is' attribute as such cannot be used to correlate an SDP Offer/Answer exchange with a 
+            TLS connection setup. Thus, this draft does not introduce new security considerations 
+            related to correlating an SDP Offer/Answer exchange with a TLS connection setup.
+        </t>
     </section>
 
     <section anchor="section.iana" title="IANA Considerations">
@@ -874,6 +869,8 @@ NEW TEXT:
             <list style="symbols">
                 <t>Changes based on IESG review by Adam Roach, Eric Rescorla, Alexey Melnikov and Mirja Kuhlewind:</t>
                 <t>- Document title changed</t>
+                <t>- Transport Protocol Considerations section removed</t>
+                <t>- Additional text to Security Considerations section</t>
                 <t>- Editorial changes</t>
             </list>
         </t>
