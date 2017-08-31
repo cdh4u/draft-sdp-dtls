@@ -4,7 +4,7 @@
 <?rfc toc="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc sortrefs="no" ?>
-<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-28.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-29.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
   <front>
     <title>
         Session Description Protocol (SDP) Offer/Answer Considerations for Datagram Transport Layer Security (DTLS)
@@ -43,10 +43,10 @@
     <area>RAI</area>
     <abstract>
         <t>
-            This document defines the Session Description Protocol (SDP) offer/answer procedures for 
-            negotiating and establishing a Datagram Transport Layer Security (DTLS) association. 
-            The document also defines the criteria for when a new DTLS association must be established. 
-            The document updates RFC 5763 and RFC 7345, by replacing common SDP offer/answer procedures 
+            This document defines the Session Description Protocol (SDP) offer/answer procedures for
+            negotiating and establishing a Datagram Transport Layer Security (DTLS) association.
+            The document also defines the criteria for when a new DTLS association must be established.
+            The document updates RFC 5763 and RFC 7345, by replacing common SDP offer/answer procedures
             with a reference to this specification.
         </t>
         <t>
@@ -54,7 +54,7 @@
         </t>
         <t>
             This document also defines how the 'tls-id' attribute can be used for negotiating
-            and establishing a Transport Layer Security (TLS) connection, in conjunction with 
+            and establishing a Transport Layer Security (TLS) connection, in conjunction with
             the procedures in RFC 4145 and RFC 8122.
         </t>
     </abstract>
@@ -62,12 +62,12 @@
 <middle>
     <section title="Introduction">
             <t>
-                <xref format="default" pageno="false" target="RFC5763"/> defines Session Description Protocol (SDP) 
-                offer/answer procedures for Secure Realtime Transport Protocol Using Datagram Transport Layer Security (DTLS-SRTP). 
-                <xref format="default" pageno="false" target="RFC7345"/> defines SDP offer/answer procedures for 
+                <xref format="default" pageno="false" target="RFC5763"/> defines Session Description Protocol (SDP)
+                offer/answer procedures for Secure Realtime Transport Protocol Using Datagram Transport Layer Security (DTLS-SRTP).
+                <xref format="default" pageno="false" target="RFC7345"/> defines SDP offer/answer procedures for
                 UDP Transport Layer over Datagram Transport Layer Security (UDPTL-DTLS). This specification
-                defines general offer/answer procedures for DTLS, based on the procedures in <xref format="default" pageno="false" target="RFC5763"/>. 
-                Other specifications, defining specific DTLS usages, can then reference this specification, 
+                defines general offer/answer procedures for DTLS, based on the procedures in <xref format="default" pageno="false" target="RFC5763"/>.
+                Other specifications, defining specific DTLS usages, can then reference this specification,
                 in order to ensure that the DTLS aspects are common among all usages. Having common
                 procedures is essential when multiple usages share the same
                 DTLS association <xref target="I-D.ietf-mmusic-sdp-bundle-negotiation"/>.
@@ -117,7 +117,7 @@
             The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
             "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
             "OPTIONAL" in this document are to be interpreted as described in
-            BCP 14 <xref target="RFC2119"> <xref target="RFC8174"> when, and only 
+            BCP 14 <xref target="RFC2119"/> <xref target="RFC8174"/> when, and only
             when, they appear in all capitals, as shown here.
         </t>
     </section>
@@ -171,7 +171,7 @@
                 If the underlying transport prohibits a DTLS association from spanning multiple transports, and if
                 the transport is changed, the endpoint must change its local SDP 'tls-id'
                 attribute value (see <xref target="sec-dcon-attr"/>).
-                An example of such a case is when DTLS is carried over the Stream Control Transmission Protocol (SCTP), 
+                An example of such a case is when DTLS is carried over the Stream Control Transmission Protocol (SCTP),
                 as described in <xref format="default" pageno="false" target="RFC6083"/>.
             </t>
         </section>
@@ -256,9 +256,9 @@
             for the 'tls-id' attribute is 'IDENTICAL', which means that
             the attribute value applies to all media descriptions
             being multiplexed <xref target="I-D.ietf-mmusic-sdp-bundle-negotiation"/>.
-            However, as described in <xref target="I-D.ietf-mmusic-sdp-bundle-negotiation"/>, 
-            in order to avoid duplication the attribute is only associated with the "m=" line 
-            representing the offerer/answerer BUNDLE-tag. 
+            However, as described in <xref target="I-D.ietf-mmusic-sdp-bundle-negotiation"/>,
+            in order to avoid duplication the attribute is only associated with the "m=" line
+            representing the offerer/answerer BUNDLE-tag.
         </t>
         <t>
             For RTP-based media, the 'tls-id' attribute applies to the whole associated
@@ -350,7 +350,7 @@
                 <xref format="default" pageno="false" target="RFC8122"/>.
             </t>
             <t>
-                The certificate received during the DTLS handshake <xref format="default" 
+                The certificate received during the DTLS handshake <xref format="default"
                 pageno="false" target="RFC6347"/> MUST match a certificate
                 fingerprint received in SDP 'fingerprint' attributes according to the procedures
                 defined in <xref format="default" pageno="false" target="RFC8122"/>.
@@ -393,8 +393,8 @@
             </t>
             <t>
                 As the offerer inserts the SDP 'setup' attribute with an 'actpass' attribute value, the
-                offerer MUST be prepared to receive a DTLS ClientHello message <xref format="default" pageno="false" 
-                target="RFC6347"/> (if a new DTLS association is established by the answerer) from the answerer 
+                offerer MUST be prepared to receive a DTLS ClientHello message <xref format="default" pageno="false"
+                target="RFC6347"/> (if a new DTLS association is established by the answerer) from the answerer
                 before the offerer receives the SDP answer.
             </t>
             <t>
@@ -553,7 +553,7 @@
             between multiple TLS connections and correlate those connections with specific
             offer/answer exchanges. One such extension is defined in
             <xref format="default" pageno="false" target="I-D.ietf-mmusic-sdp-uks"/>.
-            
+
         </t>
         <t>
             If an offerer or answerer inserts an SDP 'connection' attribute with a 'new'
@@ -632,7 +632,7 @@
             Regardless of the previous existence of a DTLS association, the SDP 'setup' attribute
             MUST be included according to the rules defined in <xref format="default" pageno="false"
             target="RFC4145"/> and if ICE is used, ICE restart MUST be initiated. This is needed in
-            order to support third party call control, as described in <xref target="I-D.ietf-mmusic-ice-sip-sdp"/>. 
+            order to support third party call control, as described in <xref target="I-D.ietf-mmusic-ice-sip-sdp"/>.
         </t>
     </section>
 
@@ -826,8 +826,8 @@ NEW TEXT:
         </t>
         <t>
             This specification does not modify the actual TLS connection setup procedures. The
-            SDP 'tls-is' attribute as such cannot be used to correlate an SDP Offer/Answer exchange with a 
-            TLS connection setup. Thus, this draft does not introduce new security considerations 
+            SDP 'tls-is' attribute as such cannot be used to correlate an SDP Offer/Answer exchange with a
+            TLS connection setup. Thus, this draft does not introduce new security considerations
             related to correlating an SDP Offer/Answer exchange with a TLS connection setup.
         </t>
     </section>
