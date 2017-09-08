@@ -244,12 +244,15 @@
                         fingerprint set; or
                     </t>
                     <t>
-                        local transport parameters; or
-                    </t>
-                    <t>
-                        ICE ufrag value
+                        local transport parameters
                     </t>
             </list>
+        </t>
+        <t>
+            NOTE: A modification of the ufrag value is not treated as an indication
+            that an endpoint wants to establish a new DTLS assocation. In order to
+            indicate that a new DTLS association is to be established, one or more 
+            of the characteristics listed above have to be modified.
         </t>
         <t>
             The mux category <xref target="I-D.ietf-mmusic-sdp-mux-attributes"/>
@@ -865,6 +868,11 @@ NEW TEXT:
     </section>
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-29
+            <list style="symbols">
+                <t>Removal of ufrag value change as a trigger for a new DTLS association</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-28
             <list style="symbols">
                 <t>Changes based on IESG review by Adam Roach, Eric Rescorla, Alexey Melnikov and Mirja Kuhlewind:</t>
