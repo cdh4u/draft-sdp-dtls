@@ -164,13 +164,13 @@
         <section title="Change of Local Transport Parameters" anchor="sec-dtls-transport">
             <t>
                 If an endpoint modifies its local transport parameters (address and/or port), and if the modification
-                requires a new DTLS association, the endpoint must change its local SDP 'tls-id'
+                requires a new DTLS association, the endpoint MUST change its local SDP 'tls-id'
                 attribute value (see <xref target="sec-dcon-attr"/>).
             </t>
             <t>
-                If the underlying transport prohibits a DTLS association from spanning multiple transports, and if
-                the transport is changed, the endpoint must change its local SDP 'tls-id'
-                attribute value (see <xref target="sec-dcon-attr"/>).
+                If the underlying transport protocol prohibits a DTLS association from spanning multiple 5-tuples
+                (transport/source address/source port/destination address/destination port), 
+                and if the 5-tuple is changed, the endpoint MUST change its local SDP 'tls-id' attribute value (see <xref target="sec-dcon-attr"/>).
                 An example of such a case is when DTLS is carried over the Stream Control Transmission Protocol (SCTP),
                 as described in <xref format="default" pageno="false" target="RFC6083"/>.
             </t>
@@ -299,13 +299,13 @@
                 after all packets associated with a previously established DTLS association has been sent. In case of an unordered transport, such as
                 UDP, packets associated with a previously established DTLS association can arrive after the answer SDP was received and after the first
                 packets associated with the new DTLS association were received. The only way to de-multiplex packets associated with
-                with a previously established DTLS association and the new DTLS association is on the basis of transport 5-tuple. Because of this, if an unordered transport
-                is used for the DTLS association, a new transport (3-tuple) must be allocated by at least one of the endpoints
-                so that DTLS packets can be de-multiplexed.
+                with a previously established DTLS association and the new DTLS association is on the basis of the 5-tuple. Because of this, if an unordered transport
+                is used for the DTLS association, a new 3-tuple (transport/source address/source port) MUST be allocated by at least one 
+                of the endpoints so that DTLS packets can be de-multiplexed.
             </t>
             <t>
                 When an offerer needs to establish a new DTLS association, and if an unordered transport (e.g., UDP)
-                is used, the offerer MUST allocate a new transport (3-tuple) for the offer in such a way that the offerer can
+                is used, the offerer MUST allocate a new 3-tuple for the offer in such a way that the offerer can
                 disambiguate any packets associated with the new DTLS association from any packets associated with
                 any other DTLS association. This typically means using a local address and/or port, or a set of
                 ICE candidates (see <xref format="default" pageno="false" target="sec-dtls-reest-ice"/>), which were
@@ -313,7 +313,7 @@
             </t>
             <t>
                 When an answerer needs to establish a new DTLS association, if an unordered transport is used, and if
-                the offerer did not allocate a new transport, the answerer MUST allocate a new transport for the
+                the offerer did not allocate a new 3-tuple, the answerer MUST allocate a new 3-tuple for the
                 answer in such a way that it can disambiguate any packets associated with the new DTLS association from any
                 packets associated with any other DTLS association. This typically means using a local address and/or
                 port, or a set of ICE candidates (see <xref format="default" pageno="false" target="sec-dtls-reest-ice"/>),
@@ -440,8 +440,8 @@
             </t>
             <t>
                 If a new DTLS association is to be established, and if the answerer inserts an SDP 'setup'
-                attribute with an 'active' attribute value in the answer, the answerer MUST initiate a DTLS handshake by
-                sending a DTLS ClientHello message towards the offerer.
+                attribute with an 'active' attribute value in the answer, the answerer MUST initiate a DTLS handshake
+                <xref format="default" pageno="false" target="RFC6347"/>) by sending a DTLS ClientHello message towards the offerer.
             </t>
             <t>
                 Even though an offerer is required to insert an 'SDP' setup attribute with an 'actpass' attribute value
@@ -575,7 +575,7 @@
             the offerer/answerer MUST process the offer/answer as misformed.
         </t>
         <t>
-            An endpoint must not make assumptions regarding the support of the SDP 'tls-id'
+            An endpoint MUST NOT make assumptions regarding the support of the SDP 'tls-id'
             attribute by the peer. Therefore, to avoid ambiguity, both offerers and answerers
             MUST always use the 'connection' attribute in conjunction with the 'tls-id' attribute.
         </t>
