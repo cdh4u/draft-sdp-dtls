@@ -4,7 +4,7 @@
 <?rfc toc="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc sortrefs="no" ?>
-<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-30.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-mmusic-dtls-sdp-31.txt" updates="5763,7345" submissionType="IETF" xml:lang="en">
   <front>
     <title>
         Session Description Protocol (SDP) Offer/Answer Considerations for Datagram Transport Layer Security (DTLS)
@@ -169,7 +169,7 @@
             </t>
             <t>
                 If the underlying transport protocol prohibits a DTLS association from spanning multiple 5-tuples
-                (transport/source address/source port/destination address/destination port), 
+                (transport/source address/source port/destination address/destination port),
                 and if the 5-tuple is changed, the endpoint MUST change its local SDP 'tls-id' attribute value (see <xref target="sec-dcon-attr"/>).
                 An example of such a case is when DTLS is carried over the Stream Control Transmission Protocol (SCTP),
                 as described in <xref format="default" pageno="false" target="RFC6083"/>.
@@ -251,7 +251,7 @@
         <t>
             NOTE: A modification of the ufrag value is not treated as an indication
             that an endpoint wants to establish a new DTLS assocation. In order to
-            indicate that a new DTLS association is to be established, one or more 
+            indicate that a new DTLS association is to be established, one or more
             of the characteristics listed above have to be modified.
         </t>
         <t>
@@ -300,7 +300,7 @@
                 UDP, packets associated with a previously established DTLS association can arrive after the answer SDP was received and after the first
                 packets associated with the new DTLS association were received. The only way to de-multiplex packets associated with
                 with a previously established DTLS association and the new DTLS association is on the basis of the 5-tuple. Because of this, if an unordered transport
-                is used for the DTLS association, a new 3-tuple (transport/source address/source port) MUST be allocated by at least one 
+                is used for the DTLS association, a new 3-tuple (transport/source address/source port) MUST be allocated by at least one
                 of the endpoints so that DTLS packets can be de-multiplexed.
             </t>
             <t>
@@ -868,6 +868,11 @@ NEW TEXT:
     </section>
     <section title="Change Log">
         <t>[RFC EDITOR NOTE: Please remove this section when publishing]</t>
+        <t>Changes from draft-ietf-mmusic-sdp-dtls-30
+            <list style="symbols">
+                <t>Changes based on IESG comments from Mirja K</t>
+            </list>
+        </t>
         <t>Changes from draft-ietf-mmusic-sdp-dtls-29
             <list style="symbols">
                 <t>Removal of ufrag value change as a trigger for a new DTLS association</t>
